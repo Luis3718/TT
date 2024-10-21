@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Ansiedad de Beck (BAI)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#quienes-somos">Quienes somos</a></li>
+            <li><a href="#iniciar-sesion">Iniciar sesión</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <span id="progressText">0%</span>
+        </div>
+        <h1>MINI - Apartado riesgo suicida</h1>
+        <p><u>Durante el ultimo mes</u></p>
+        <form id="Riesgo_suicida" action="process.py" method="POST">
+            <div class="question">
+                <p>1. ¿Ha pensado que sería mejor morirse o ha deseado estar muerto(a)?</p>
+                <label><input type="radio" name="q1" value="0"> 0 - No</label><br>
+                <label><input type="radio" name="q1" value="1"> 1 - Si</label><br>
+            </div>
+            <div class="question">
+                <p>2. ¿Ha querido hacerse daño?</p>
+                <label><input type="radio" name="q2" value="0"> 0 - No</label><br>
+                <label><input type="radio" name="q2" value="1"> 1 - Si</label><br>    
+            </div>
+            <div class="question">
+                <p>3. ¿Ha pensado en el suicidio?</p>
+                <label><input type="radio" name="q3" value="0"> 0 - No</label><br>
+                <label><input type="radio" name="q3" value="1"> 1 - Si</label><br>
+            </div>
+            <div class="question">
+                <p>4. ¿Ha planeado suicidarse?</p>
+                <label><input type="radio" name="q4" value="0"> 0 - No</label><br>
+                <label><input type="radio" name="q4" value="1"> 1 - Si</label><br>            </div>
+            <div class="question">
+                <p>5. ¿Ha intentado suicidarse?</p>
+                <label><input type="radio" name="q5" value="0"> 0 - No</label><br>
+                <label><input type="radio" name="q5" value="1"> 1 - Si</label><br>
+            </div>
+            <p><u>A lo largo de su vida</u></p>
+            <div class="question">
+                <p>6. ¿Alguna vez ha intentado suicidarse?</p>
+                <label><input type="radio" name="q6" value="0"> 0 - No</label><br>
+                <label><input type="radio" name="q6" value="1"> 1 - Si</label><br>
+            </div>
+            <div class="navigation-buttons">
+                <button type="button" id="previousButton">Anterior</button>
+                <button type="button" id="nextButton">Siguiente</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <p>Si tiene alguna duda o presenta algún inconveniente escríbanos a: 
+            <a href="mailto:serenamente@iztacala.unam.mx?subject=Asunto del correo">serenamente@iztacala.unam.mx</a>
+        </p>
+        <p>Hemos trabajado con la Facultad de Psicología de la UNAM y el Instituto Nacional de Psiquiatría Ramón de la Fuente Muñiz.</p>
+        <p>
+            <a href="#">- Política de privacidad de datos personales -</a>
+            <a href="#">- Acceso a personal autorizado -</a>
+        </p>
+        <p>© 2023</p>
+    </footer>
+    <script>
+        const totalQuestions = 6;
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        const form = document.getElementById('Riesgo_suicida');
+
+        form.addEventListener('change', () => {
+            let answered = 0;
+            const questions = document.querySelectorAll('input[type="radio"]');
+            
+            const groupedQuestions = {};
+            questions.forEach((question) => {
+                if (!groupedQuestions[question.name]) {
+                    groupedQuestions[question.name] = [];
+                }
+                groupedQuestions[question.name].push(question);
+            });
+
+            // Contar cuántas preguntas tienen una respuesta seleccionada
+            for (const questionGroup in groupedQuestions) {
+                if (groupedQuestions[questionGroup].some(q => q.checked)) {
+                    answered++;
+                }
+            }
+
+            // Calcular el progreso y actualizar la barra y el texto
+            const progress = (answered / totalQuestions) * 100;
+            progressBar.style.width = `${progress}%`;
+            progressText.textContent = `${Math.round(progress)}%`;
+        });
+
+        document.getElementById('nextButton').addEventListener('click', () => {
+        // Guardar respuestas actuales antes de avanzar
+        const formData = new FormData(document.getElementById('Riesgo_suicida'));
+        const responses = {};
+        formData.forEach((value, key) => {
+            responses[key] = value;
+        });
+        localStorage.setItem('Riesgo_suicida_responses', JSON.stringify(responses));
+        
+        // Redirigir a la siguiente página del test
+        window.location.href = 'Indice_bienestar.html';
+        });
+
+        document.getElementById('previousButton').addEventListener('click', () => {
+        // Redirigir a la página anterior del test
+        window.location.href = 'Inventario_beck.html';
+        });
+    </script>
+</body>
+</html>
