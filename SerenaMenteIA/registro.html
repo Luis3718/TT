@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Paciente</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#quienes-somos">Quienes somos</a></li>
+            <li><a href="#iniciar-sesion">Iniciar sesión</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Registro de Paciente</h1>
+        <form id="registroForm">
+            <div class="question">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="question">
+                <label for="nombre_usuario">Correo Electrónico:</label>
+                <input type="email" id="nombre_usuario" name="nombre_usuario" required>
+            </div>
+            <div class="question">
+                <label for="contraseña">Contraseña:</label>
+                <input type="password" id="contraseña" name="contraseña" required>
+            </div>
+            <div class="question">
+                <label for="sexo">Sexo:</label>
+                <select id="sexo" name="sexo">
+                    <option value="Mujer">Mujer</option>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" min="1" required>
+            </div>
+            <div class="question">
+                <label for="en_tratamiento">¿Está en tratamiento?:</label>
+                <select id="en_tratamiento" name="en_tratamiento">
+                    <option value="true">Sí</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="toma_medicacion">¿Toma medicación?:</label>
+                <select id="toma_medicacion" name="toma_medicacion">
+                    <option value="Sí">Sí</option>
+                    <option value="No">No</option>
+                    <option value="No aplica">No aplica</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="nombre_medicacion">Nombre del Medicamento:</label>
+                <input type="text" id="nombre_medicacion" name="nombre_medicacion">
+            </div>
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>Si tiene alguna duda o presenta algún inconveniente escríbanos a: 
+            <a href="mailto:serenamente@iztacala.unam.mx?subject=Asunto del correo">serenamente@iztacala.unam.mx</a>
+        </p>
+        <p>Hemos trabajado con la Facultad de Psicología de la UNAM y el Instituto Nacional de Psiquiatría Ramón de la Fuente Muñiz.</p>
+        <p>© 2023</p>
+    </footer>
+
+    <script>
+        document.getElementById("registroForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                nombre: formData.get("nombre"),
+                nombre_usuario: formData.get("nombre_usuario"),
+                contraseña: formData.get("contraseña"),
+                sexo: formData.get("sexo"),
+                edad: parseInt(formData.get("edad")),
+                en_tratamiento: formData.get("en_tratamiento") === "true",
+                toma_medicacion: formData.get("toma_medicacion"),
+                nombre_medicacion: formData.get("nombre_medicacion")
+            };
+
+            try {
+                const response = await fetch("http://127.0.0.1:8000/register/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert("Paciente registrado exitosamente");
+                    event.target.reset();
+                } else {
+                    const errorData = await response.json();
+                    alert("Error: " + errorData.detail);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Ocurrió un error al registrar el paciente.");
+            }
+        });
+    </script>
+</body>
+</html>
