@@ -20,187 +20,42 @@
             <span id="progressText">0%</span>
         </div>
         <h1>Índice de Bienestar General-5 de la Organización Mundial de la Salud (WBI5)</h1>
-        <p>Por favor, lea cada grupo cuidadosamente y elija una oración en cada conjunto, la que mejor describa cómo se ha sentido <u>en las últimas dos semanas, incluido el día de hoy.</u> Si considera que varias oraciones en un mismo grupo reflejan cómo se ha sentido, elija la opción más alta.</p>
+        <p><u>Durante las últimas dos semanas</u></p>
         <form id="Bienestarform" action="process.py" method="POST">
             <div class="question">
-                <p>1. Hormigueo o entumecimiento</p>
-                <label><input type="radio" name="q1" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q1" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q1" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q1" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q1" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q1" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
+                <p>1. ¿Me he sentido alegre y de buen ánimo?</p>
+                <label><input type="radio" name="q1" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q1" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q1" value="2"> 2 - Algunas veces</label><br>
+                <label><input type="radio" name="q1" value="3"> 3 - Siempre</label><br>
             </div>
             <div class="question">
-                <p>2. Sensación de calor</p>
-                <label><input type="radio" name="q2" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q2" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q2" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q2" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q2" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q2" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
+                <p>2. ¿Me he sentido tranquilo/a y relajado/a? </p>
+                <label><input type="radio" name="q2" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q2" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q2" value="2"> 2 - Algunas veces</label><br>
+                <label><input type="radio" name="q2" value="3"> 3 - Siempre</label><br>
             </div>
             <div class="question">
-                <p>3. Temblor en las piernas</p>
-                <label><input type="radio" name="q3" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q3" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q3" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q3" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q3" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q3" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
+                <p>3. ¿Me he sentido activo/a y con energía?</p>
+                <label><input type="radio" name="q3" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q3" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q3" value="2"> 2 - Algunas veces</label><br>
+                <label><input type="radio" name="q3" value="3"> 3 - Siempre</label><br>
             </div>
             <div class="question">
-                <p>4. Incapacidad de relajarse</p>
-                <label><input type="radio" name="q4" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q4" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q4" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q4" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q4" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q4" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
+                <p>4. ¿Me he levantado sintiéndome bien y descansado/a?</p>
+                <label><input type="radio" name="q4" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q4" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q4" value="2"> 2 - Algunas veces</label><br>
+                <label><input type="radio" name="q4" value="3"> 3 - Siempre</label><br>
             </div>
             <div class="question">
-                <p>5. Miedo a que suceda lo peor</p>
-                <label><input type="radio" name="q5" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q5" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q5" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q5" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q5" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q5" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>6. Mareo o aturdimiento</p>
-                <label><input type="radio" name="q6" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q6" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q6" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q6" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q6" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q6" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>7. Palpitaciones o taquicardia</p>
-                <label><input type="radio" name="q7" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q7" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q7" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q7" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q7" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q7" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>8. Sensación de inestabilidad e inseguridad física</p>
-                <label><input type="radio" name="q8" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q8" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q8" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q8" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q8" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q8" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>9. Terrores</p>
-                <label><input type="radio" name="q9" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q9" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q9" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q9" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q9" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q9" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>10. Nerviosismo</p>
-                <label><input type="radio" name="q10" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q10" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q10" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q10" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q10" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q10" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>11. Sensación de ahogo</p>
-                <label><input type="radio" name="q11" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q11" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q11" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q11" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q11" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q11" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>12. Temblores de manos</p>
-                <label><input type="radio" name="q12" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q12" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q12" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q12" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q12" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q12" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>13. Temblor generalizado o estremecimiento</p>
-                <label><input type="radio" name="q13" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q13" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q13" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q13" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q13" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q13" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>14. Miedo a perder el control</p>
-                <label><input type="radio" name="q14" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q14" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q14" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q14" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q14" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q14" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>15. Dificultad para respirar</p>
-                <label><input type="radio" name="q15" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q15" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q15" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q15" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q15" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q15" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>16. Miedo a morirse</p>
-                <label><input type="radio" name="q16" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q16" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q16" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q16" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q16" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q16" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>17. Sobresaltos</p>
-                <label><input type="radio" name="q17" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q17" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q17" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q17" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q17" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q17" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>18. Molestias digestivas o abdominales</p>
-                <label><input type="radio" name="q18" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q18" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q18" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q18" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q18" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q18" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>19. Palidez</p>
-                <label><input type="radio" name="q19" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q19" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q19" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q19" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q19" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q19" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
-            </div>
-            <div class="question">
-                <p>20. Rubor facial</p>
-                <label><input type="radio" name="q20" value="0"> 0 - No, en absoluto</label><br>
-                <label><input type="radio" name="q20" value="1"> 1 - Levemente</label><br>
-                <label><input type="radio" name="q20" value="2"> 2 - No me molesta mucho</label><br>
-                <label><input type="radio" name="q20" value="3"> 3 - Moderadamente</label><br>
-                <label><input type="radio" name="q20" value="4"> 4 - Muy desagradable, pero podía soportarlo</label><br>
-                <label><input type="radio" name="q20" value="5"> 5 - Gravemente, casi no podía soportarlo</label>
+                <p>5. ¿Mi vida diaria ha tenido cosas interesantes para mí?</p>
+                <label><input type="radio" name="q5" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q5" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q5" value="2"> 2 - Algunas veces</label><br>
+                <label><input type="radio" name="q5" value="3"> 3 - Siempre</label><br>
             </div>
             <div class="navigation-buttons">
                 <button type="button" id="previousButton">Anterior</button>
@@ -260,7 +115,7 @@
         localStorage.setItem('Bienestar_responses', JSON.stringify(responses));
         
         // Redirigir a la siguiente página del test
-        window.location.href = 'Estres_test.html';
+        window.location.href = 'Escala_estres.html';
         });
 
         document.getElementById('previousButton').addEventListener('click', () => {

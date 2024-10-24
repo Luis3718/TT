@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escala de Estrés Percibido -14 (PSS-14)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#quienes-somos">Quienes somos</a></li>
+            <li><a href="#iniciar-sesion">Iniciar sesión</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <span id="progressText">0%</span>
+        </div>
+        <h1>Escala de Estrés Percibido -14 (PSS-14)</h1>
+        <p>Marca la opción que mejor se adecúe a tu situación actual, <u>teniendo en cuenta el último mes</u>.</p>
+        <form id="Estresform">
+            <div class="question">
+                <p>1. ¿Con qué frecuencia has estado afectado/a por algo que ha ocurrido inesperadamente?</p>
+                <label><input type="radio" name="q1" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q1" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q1" value="2"> 2 - De vez en cuando</label><br>
+                <label><input type="radio" name="q1" value="3"> 3 - A menudo</label><br>
+                <label><input type="radio" name="q1" value="4"> 4 - Muy a menudo</label><br>
+            </div>
+            <div class="question">
+                <p>2. ¿Con qué frecuencia te has sentido incapaz de controlar las cosas importantes de tu vida?</p>
+                <label><input type="radio" name="q2" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q2" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q2" value="2"> 2 - De vez en cuando</label><br>
+                <label><input type="radio" name="q2" value="3"> 3 - A menudo</label><br>
+                <label><input type="radio" name="q2" value="4"> 4 - Muy a menudo</label><br>
+            </div>
+            <div class="question">
+                <p>3. ¿Con qué frecuencia te has sentido nervioso/a o estresado/a (lleno de tensión)?</p>
+                <label><input type="radio" name="q3" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q3" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q3" value="2"> 2 - De vez en cuando</label><br>
+                <label><input type="radio" name="q3" value="3"> 3 - A menudo</label><br>
+                <label><input type="radio" name="q3" value="4"> 4 - Muy a menudo</label><br>
+            </div>
+            <div class="question">
+                <p>4. ¿Con qué frecuencia has manejado con éxito los pequeños problemas irritantes de la vida?</p>
+                <label><input type="radio" name="q4" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q4" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q4" value="2"> 2 - De vez en cuando</label><br>
+                <label><input type="radio" name="q4" value="3"> 3 - A menudo</label><br>
+                <label><input type="radio" name="q4" value="4"> 4 - Muy a menudo</label><br>
+            </div>
+            <div class="question">
+                <p>5. ¿Con qué frecuencia has sentido que has afrontado efectivamente los cambios importantes que han estado ocurriendo en tu vida?</p>
+                <label><input type="radio" name="q5" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q5" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q5" value="2"> 2 - De vez en cuando</label><br>
+                <label><input type="radio" name="q5" value="3"> 3 - A menudo</label><br>
+                <label><input type="radio" name="q5" value="4"> 4 - Muy a menudo</label><br>
+            </div>
+            <div class="question">
+                <p>6. ¿Con qué frecuencia has estado seguro/a sobre tu capacidad de manejar tus problemas personales?</p>
+                <label><input type="radio" name="q6" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q6" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q6" value="2"> 2 - De vez en cuando</label><br>
+                <label><input type="radio" name="q6" value="3"> 3 - A menudo</label><br>
+                <label><input type="radio" name="q6" value="4"> 4 - Muy a menudo</label><br>
+            </div>
+            <div class="question">
+                <p>7. ¿Con qué frecuencia has sentido que las cosas te van bien?</p>
+                <label><input type="radio" name="q7" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q7" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q7" value="2"> 2 - De vez en cuando</label><br>
+                <label><input type="radio" name="q7" value="3"> 3 - A menudo</label><br>
+                <label><input type="radio" name="q7" value="4"> 4 - Muy a menudo</label><br>
+            </div>
+            <div class="question">
+                <p>8. ¿Con qué frecuencia has sentido que no podías afrontar todas las cosas que tenías que hacer?</p>
+                <label><input type="radio" name="q8" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q8" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q8" value="2"> 2 - De vez en cuando</label><br>
+                <label><input type="radio" name="q8" value="3"> 3 - A menudo</label><br>
+                <label><input type="radio" name="q8" value="4"> 4 - Muy a menudo</label><br>
+            </div>
+            <div class="question">
+                <p>9. ¿Con qué frecuencia has podido controlar las dificultades de tu vida?</p>
+                <label><input type="radio" name="q9" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q9" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q9" value="2"> 2 - De vez en cuando</label><br>
+                <label><input type="radio" name="q9" value="3"> 3 - A menudo</label><br>
+                <label><input type="radio" name="q9" value="4"> 4 - Muy a menudo</label><br>
+            </div>
+            <div class="question">
+                <p>10. ¿Con qué frecuencia has sentido que tienes el control de todo?</p>
+                <label><input type="radio" name="q10" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q10" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q10" value="2"> 2 - De vez en cuando</label><br>
+                <label><input type="radio" name="q10" value="3"> 3 - A menudo</label><br>
+                <label><input type="radio" name="q10" value="4"> 4 - Muy a menudo</label><br>
+            </div>
+            <div class="question">
+                <p>11.  ¿Con qué frecuencia has estado enfadado/a porque las cosas que te han ocurrido estaban fuera de tu control?</p>
+                <label><input type="radio" name="q11" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q11" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q11" value="2"> 2 - De vez en cuando</label><br>
+                <label><input type="radio" name="q11" value="3"> 3 - A menudo</label><br>
+                <label><input type="radio" name="q11" value="4"> 4 - Muy a menudo</label><br>
+            </div>
+            <div class="question">
+                <p>12. ¿Con qué frecuencia has pensado sobre las cosas que no has terminado (pendientes de hacer)?</p>
+                <label><input type="radio" name="q12" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q12" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q12" value="2"> 2 - De vez en cuando</label><br>
+                <label><input type="radio" name="q12" value="3"> 3 - A menudo</label><br>
+                <label><input type="radio" name="q12" value="4"> 4 - Muy a menudo</label><br>
+            </div>
+            <div class="question">
+                <p>13. ¿Con qué frecuencia has podido controlar la forma de pasar el tiempo (organizar)?</p>
+                <label><input type="radio" name="q13" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q13" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q13" value="2"> 2 - De vez en cuando</label><br>
+                <label><input type="radio" name="q13" value="3"> 3 - A menudo</label><br>
+                <label><input type="radio" name="q13" value="4"> 4 - Muy a menudo</label><br>
+            </div>
+            <div class="question">
+                <p>14.  ¿Con qué frecuencia has sentido que las dificultades se acumulan tanto que no puedes superarlas?</p>
+                <label><input type="radio" name="q14" value="0"> 0 - Nunca</label><br>
+                <label><input type="radio" name="q14" value="1"> 1 - Casi nunca</label><br>
+                <label><input type="radio" name="q14" value="2"> 2 - De vez en cuando</label><br>
+                <label><input type="radio" name="q14" value="3"> 3 - A menudo</label><br>
+                <label><input type="radio" name="q14" value="4"> 4 - Muy a menudo</label><br>
+            </div>
+            <div class="navigation-buttons">
+                <button type="button" id="previousButton">Anterior</button>
+                <button type="button" id="nextButton">Enviar</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <p>Si tiene alguna duda o presenta algún inconveniente escríbanos a: 
+            <a href="mailto:serenamente@iztacala.unam.mx?subject=Asunto del correo">serenamente@iztacala.unam.mx</a>
+        </p>
+        <p>Hemos trabajado con la Facultad de Psicología de la UNAM y el Instituto Nacional de Psiquiatría Ramón de la Fuente Muñiz.</p>
+        <p>
+            <a href="#">- Política de privacidad de datos personales -</a>
+            <a href="#">- Acceso a personal autorizado -</a>
+        </p>
+        <p>© 2023</p>
+    </footer>
+    <script>
+        // Actualizar la barra de progreso
+        const totalQuestions = 14; // Número total de preguntas en este test
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        const form = document.getElementById('Estresform');
+
+        form.addEventListener('change', () => {
+            let answered = 0;
+            const questions = document.querySelectorAll('input[type="radio"]');
+            
+            const groupedQuestions = {};
+            questions.forEach((question) => {
+                if (!groupedQuestions[question.name]) {
+                    groupedQuestions[question.name] = [];
+                }
+                groupedQuestions[question.name].push(question);
+            });
+
+            // Contar cuántas preguntas tienen una respuesta seleccionada
+            for (const questionGroup in groupedQuestions) {
+                if (groupedQuestions[questionGroup].some(q => q.checked)) {
+                    answered++;
+                }
+            }
+
+            // Calcular el progreso y actualizar la barra y el texto
+            const progress = (answered / totalQuestions) * 100;
+            progressBar.style.width = `${progress}%`;
+            progressText.textContent = `${Math.round(progress)}%`;
+        });
+
+        // Función para navegar hacia atrás
+        document.getElementById('previousButton').addEventListener('click', () => {
+            window.location.href = 'Indice_bienestar.html';
+        });
+
+        document.getElementById('nextButton').addEventListener('click', () => {
+        const formData = new FormData(document.getElementById('Estresform'));
+        const responses = {};
+        formData.forEach((value, key) => {
+            responses[key] = value;
+        });
+        localStorage.setItem('Estres_responses', JSON.stringify(responses));
+        const baiResponses = JSON.parse(localStorage.getItem('bai_responses'));
+        const beckResponses = JSON.parse(localStorage.getItem('beck_responses'));
+        const riesgo_suicidaResponses = JSON.parse(localStorage.getItem('Riesgo_suicida_responses'));
+        const bienestarResponses = JSON.parse(localStorage.getItem('Bienestar_responses'));
+        const estresResponses = JSON.parse(localStorage.getItem('Estres_responses'));
+        // Añadir otros tests si es necesario
+
+        const respuestasFinales = {
+            bai: baiResponses,
+            beck: beckResponses,
+            rs: riesgo_suicidaResponses,
+            bienestar: bienestarResponses,
+            estres: estresResponses,
+        };
+
+        // Enviar a través de una solicitud POST usando Fetch
+        fetch('process.py', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `respuestas_json=${encodeURIComponent(JSON.stringify(respuestasFinales))}`
+        }).then(response => response.text()).then(data => {
+            document.body.innerHTML = data; // Mostrar mensaje de éxito
+        });
+    });
+    </script>
+</body>
+</html>
