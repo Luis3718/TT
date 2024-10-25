@@ -14,25 +14,24 @@
             <li><a href="#iniciar-sesion">Iniciar sesión</a></li>
         </ul>
     </nav>
-
     <div class="container">
         <h1>Registro de Paciente</h1>
         <form id="registroForm">
             <div class="question">
                 <label for="nombre">Nombre Completo:</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <input type="text" id="nombre" name="Nombre" required>
             </div>
             <div class="question">
-                <label for="nombre_usuario">Correo Electrónico:</label>
-                <input type="email" id="nombre_usuario" name="nombre_usuario" required>
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="Correo" required>
             </div>
             <div class="question">
                 <label for="contraseña">Contraseña:</label>
-                <input type="password" id="contraseña" name="contraseña" required>
+                <input type="password" id="contraseña" name="Contraseña" required>
             </div>
             <div class="question">
                 <label for="sexo">Sexo:</label>
-                <select id="sexo" name="sexo">
+                <select id="sexo" name="Sexo" required>
                     <option value="Mujer">Mujer</option>
                     <option value="Hombre">Hombre</option>
                     <option value="Prefiero no decirlo">Prefiero no decirlo</option>
@@ -40,76 +39,137 @@
             </div>
             <div class="question">
                 <label for="edad">Edad:</label>
-                <input type="number" id="edad" name="edad" min="1" required>
+                <input type="number" id="edad" name="Edad" required>
             </div>
             <div class="question">
-                <label for="en_tratamiento">¿Está en tratamiento?:</label>
-                <select id="en_tratamiento" name="en_tratamiento">
+                <label for="nivelEstudios">Nivel de Estudios:</label>
+                <select id="nivelEstudios" name="ID_NivelEstudios" required>
+                    <option value="1">No estudié</option>
+                    <option value="2">Primaria</option>
+                    <option value="3">Secundaria</option>
+                    <option value="4">Preparatoria</option>
+                    <option value="5">Licenciatura</option>
+                    <option value="6">Maestría</option>
+                    <option value="7">Doctorado</option>
+                    <option value="8">Otro</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="ocupacion">Ocupación:</label>
+                <select id="ocupacion" name="ID_Ocupacion" required>
+                    <option value="1">Encargado(a) del hogar</option>
+                    <option value="2">Estudiante</option>
+                    <option value="3">Empleado(a)</option>
+                    <option value="4">Desempleado(a)</option>
+                    <option value="5">Autoempleo</option>
+                    <option value="6">Profesionista</option>
+                    <option value="7">Jubilado(a)</option>
+                    <option value="8">Otro</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="residencia">Lugar de Residencia:</label>
+                <select id="residencia" name="ID_Residencia" required>
+                    <option value="1">Aguascalientes</option>
+                    <option value="2">Baja California</option>
+                    <option value="3">Baja California Sur</option>
+                    <option value="4">Campeche</option>
+                    <option value="5">Chiapas</option>
+                    <option value="6">Chihuahua</option>
+                    <option value="7">Ciudad de México</option>
+                    <option value="8">Coahuila</option>
+                    <option value="9">Colima</option>
+                    <option value="10">Durango</option>
+                    <option value="11">Estado de México</option>
+                    <option value="12">Guanajuato</option>
+                    <option value="13">Guerrero</option>
+                    <option value="14">Hidalgo</option>
+                    <option value="15">Jalisco</option>
+                    <option value="16">Michoacán</option>
+                    <option value="17">Morelos</option>
+                    <option value="18">Nayarit</option>
+                    <option value="19">Nuevo León</option>
+                    <option value="20">Oaxaca</option>
+                    <option value="21">Puebla</option>
+                    <option value="22">Querétaro</option>
+                    <option value="23">Quintana Roo</option>
+                    <option value="24">San Luis Potosí</option>
+                    <option value="25">Sinaloa</option>
+                    <option value="26">Sonora</option>
+                    <option value="27">Tabasco</option>
+                    <option value="28">Tamaulipas</option>
+                    <option value="29">Tlaxcala</option>
+                    <option value="30">Veracruz</option>
+                    <option value="31">Yucatán</option>
+                    <option value="32">Zacatecas</option>
+                    <option value="33">Extranjero</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="estadoCivil">Estado Civil:</label>
+                <select id="estadoCivil" name="ID_EstadoCivil" required>
+                    <option value="1">Soltero(a)</option>
+                    <option value="2">Unión libre</option>
+                    <option value="3">Casado(a)</option>
+                    <option value="4">Divorciado(a)</option>
+                    <option value="5">Separado(a)</option>
+                    <option value="6">Viudo(a)</option>
+                    <option value="7">Otro</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="enTratamiento">En Tratamiento:</label>
+                <select id="enTratamiento" name="EnTratamiento" required>
                     <option value="true">Sí</option>
                     <option value="false">No</option>
                 </select>
             </div>
             <div class="question">
-                <label for="toma_medicacion">¿Toma medicación?:</label>
-                <select id="toma_medicacion" name="toma_medicacion">
+                <label for="tomaMedicamentos">Toma Medicamentos:</label>
+                <select id="tomaMedicamentos" name="TomaMedicamentos" required>
                     <option value="Sí">Sí</option>
                     <option value="No">No</option>
                     <option value="No aplica">No aplica</option>
                 </select>
             </div>
             <div class="question">
-                <label for="nombre_medicacion">Nombre del Medicamento:</label>
-                <input type="text" id="nombre_medicacion" name="nombre_medicacion">
+                <label for="nombreMedicacion">Nombre de Medicación (opcional):</label>
+                <input type="text" id="nombreMedicacion" name="nombre_medicacion">
             </div>
             <button type="submit">Registrar</button>
         </form>
     </div>
-
-    <footer>
-        <p>Si tiene alguna duda o presenta algún inconveniente escríbanos a: 
-            <a href="mailto:serenamente@iztacala.unam.mx?subject=Asunto del correo">serenamente@iztacala.unam.mx</a>
-        </p>
-        <p>Hemos trabajado con la Facultad de Psicología de la UNAM y el Instituto Nacional de Psiquiatría Ramón de la Fuente Muñiz.</p>
-        <p>© 2023</p>
-    </footer>
-
     <script>
-        document.getElementById("registroForm").addEventListener("submit", async function(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(event.target);
-            const data = {
-                nombre: formData.get("nombre"),
-                nombre_usuario: formData.get("nombre_usuario"),
-                contraseña: formData.get("contraseña"),
-                sexo: formData.get("sexo"),
-                edad: parseInt(formData.get("edad")),
-                en_tratamiento: formData.get("en_tratamiento") === "true",
-                toma_medicacion: formData.get("toma_medicacion"),
-                nombre_medicacion: formData.get("nombre_medicacion")
-            };
-
-            try {
-                const response = await fetch("http://127.0.0.1:8000/register/", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(data)
-                });
-
-                if (response.ok) {
-                    alert("Paciente registrado exitosamente");
-                    event.target.reset();
-                } else {
-                    const errorData = await response.json();
-                    alert("Error: " + errorData.detail);
-                }
-            } catch (error) {
-                console.error("Error:", error);
-                alert("Ocurrió un error al registrar el paciente.");
-            }
+        document.getElementById("registroForm").addEventListener("submit", async (event) => {
+        event.preventDefault();
+        
+        const formData = new FormData(event.target);
+        const data = {};
+        
+        formData.forEach((value, key) => {
+            data[key] = value;
         });
+
+        try {
+            const response = await fetch("http://localhost:8000/pacientes/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                alert("Paciente registrado con éxito.");
+                event.target.reset(); // Limpiar el formulario
+            } else {
+                const errorData = await response.json();
+                alert("Error al registrar el paciente: " + errorData.detail);
+            }
+        } catch (error) {
+            alert("Error de conexión: " + error.message);
+        }
+    });
     </script>
 </body>
 </html>
