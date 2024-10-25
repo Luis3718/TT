@@ -1,12 +1,25 @@
 from sqlalchemy.orm import Session
 from models import Pacientes
 from schemas import PacienteCreate
+from passlib.context import CryptContext
+
+# Crear contexto para manejar hashing de contraseñas
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+def verificar_credenciales(db: Session, correo: str, contraseña: str):
+    paciente = db.query(Pacientes).filter(Pacientes.Correo == correo).first()
+    if not paciente:
+        return None
+    if not pwd_context.verify(contraseña, paciente.Contraseña):
+        return None
+    return paciente
 
 def crear_paciente(db: Session, paciente: PacienteCreate):
+    hashed_password = pwd_context.hash(paciente.Contraseña)
     nuevo_paciente = Pacientes(
         Nombre=paciente.Nombre,
         Correo=paciente.Correo,
-        Contraseña=paciente.Contraseña,
+        Contraseña=hashed_password,  # Usar la contraseña cifrada
         Sexo=paciente.Sexo,
         Edad=paciente.Edad,
         ID_NivelEstudios=paciente.ID_NivelEstudios,

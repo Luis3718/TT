@@ -1,6 +1,17 @@
 from pydantic import BaseModel, EmailStr
 from typing import Literal, Optional
+from pydantic import BaseModel, EmailStr
 
+class PacienteLogin(BaseModel):
+    Correo: EmailStr
+    Contraseña: str
+
+class PacienteLoginResponse(BaseModel):
+    ID_Paciente: int
+    Nombre: str
+    Correo: EmailStr
+    Mensaje: str
+    
 class PacienteCreate(BaseModel):
     Nombre: str
     Correo: EmailStr
