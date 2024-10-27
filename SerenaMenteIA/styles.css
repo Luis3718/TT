@@ -6,35 +6,6 @@ body {
     padding: 0;
 }
 
-/* Barra de progreso */
-.progress-container {
-    width: 100%;
-    background-color: #e0e0e0;
-    border-radius: 20px;
-    height: 20px;
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.progress-bar {
-    height: 100%;
-    background-color: #007bff; /* Color azul */
-    width: 0%;
-    border-radius: 20px;
-    transition: width 0.3s ease;
-}
-
-#progressText {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 0;
-    left: 0;
-    color: #000;
-    font-size: 14px;
-    line-height: 20px;
-}
-
 /* Estilos para el menú de navegación */
 nav {
     background-color: #00A99D;
@@ -45,7 +16,7 @@ nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    text-align: right; /* Alinear a la derecha */
+    text-align: right;
 }
 
 nav ul li {
@@ -63,91 +34,84 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-.container {
+/* Contenedor principal de registro */
+.registro-container {
     width: 80%;
-    margin: auto;
+    margin: 20px auto;
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
     text-align: center;
     color: #00A99D;
+    margin-bottom: 20px;
 }
 
-p {
-    text-align: center;
-    color: #666;
+/* Contenedor para avatar y formulario */
+.contenedor-secciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centrar verticalmente ambos contenedores */
+    width: 100%;
+    min-height: 100%; /* Asegura que ocupe el espacio vertical total */
 }
 
-.question {
-    margin: 25px 0; /* Incrementar el espacio entre cada pregunta */
-    text-align: left;
+/* Sección de avatar */
+.avatar-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centra el contenido verticalmente */
+    width: 45%;
 }
 
-.question p {
-    font-size: 18px;
-    color: #000;
-    margin-bottom: 10px; /* Aumentar el espacio entre el texto de la pregunta y las opciones */
-    text-align: left;
-}
-
-label {
+.avatar-box {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f0f0f0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.avatar-section button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #00A99D;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.avatar-section button:hover {
+    background-color: #00897B;
+}
+
+/* Sección del formulario */
+.form-section {
+    width: 50%; /* Ancho para ocupar más de la mitad del contenedor principal */
+}
+
+.form-section .question {
+    margin: 15px 0;
+    text-align: left;
+}
+
+.question label {
     font-size: 16px;
     color: #333;
-    padding-left: 0;
 }
 
-input[type="radio"] {
-    margin-right: 10px;
-}
-
-.navigation-buttons {
-    display: flex;
-    justify-content: space-between; /* Alinear botones a los extremos */
-    margin-top: 20px;
-}
-
-#previousButton, #nextButton {
-    width: 150px;
-    padding: 10px;
-    background-color: #00A99D;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-#previousButton:hover, #nextButton:hover {
-    background-color: #00897B;
-}
-
-/* Estilo para el botón "Siguiente" */
-#nextButton {
-    display: block;
-    width: 150px; /* Más pequeño que el botón de "Enviar" */
-    padding: 10px;
-    background-color: #00A99D;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px; /* Un poco más pequeño */
-    cursor: pointer;
-    margin-left: auto; /* Alinear a la derecha */
-    margin-right: 0; /* Asegurar que quede pegado a la derecha */
-}
-
-#nextButton:hover {
-    background-color: #00897B;
-}
-
-/* Estilo para el botón "Enviar" (mantener como está) */
 button[type="submit"] {
     display: block;
     width: 100%;
@@ -158,6 +122,59 @@ button[type="submit"] {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+}
+
+/* Contenedor de inicio de sesión */
+.login-container {
+    width: 400px;
+    margin: 100px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h1 {
+    color: #00A99D;
+    margin-bottom: 20px;
+}
+
+.login-container .question {
+    margin: 15px 0;
+}
+
+.login-container p {
+    color: #666;
+    margin-top: 15px;
+}
+
+.login-container a {
+    color: #00A99D;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor principal centrado */
+.main-content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* Ajuste opcional para centrar verticalmente */
+    padding: 20px;
+}
+
+.content {
+    width: 80%;
+    max-width: 800px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 /* Footer */
@@ -185,19 +202,24 @@ footer a:hover {
 
 /* Media Queries: Diseño responsivo */
 @media (max-width: 768px) {
-    .container {
+    .registro-container {
         width: 90%;
+    }
+
+    .contenedor-secciones {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .avatar-section, .form-section {
+        width: 100%;
     }
 
     h1 {
         font-size: 24px;
     }
 
-    .question p {
-        font-size: 16px;
-    }
-
-    label {
+    .question label {
         font-size: 14px;
     }
 
@@ -212,7 +234,7 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
-    .container {
+    .registro-container {
         width: 95%;
     }
 
@@ -220,11 +242,7 @@ footer a:hover {
         font-size: 20px;
     }
 
-    .question p {
-        font-size: 14px;
-    }
-
-    label {
+    .question label {
         font-size: 12px;
     }
 
