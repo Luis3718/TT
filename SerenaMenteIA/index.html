@@ -28,21 +28,28 @@
         </div>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Verifica si hay un token válido en localStorage
-            const token = localStorage.getItem("token");
+        document.addEventListener("DOMContentLoaded", async function() {
+            try {
+                // Hacer la solicitud al backend para obtener el nombre del usuario
+                const response = await fetch("http://127.0.0.1:8000/usuario-info/", {
+                    method: "GET",
+                    credentials: "include"  // Esto envía la cookie con la solicitud
+                });
     
-            if (token) {
-                // Si hay un token, intenta obtener el nombre del usuario
-                const nombrePaciente = localStorage.getItem("Nombre");
-                if (nombrePaciente) {
-                    document.getElementById("nombrePaciente").textContent = `¡Bienvenido, ${nombrePaciente}!`;
+                if (response.ok) {
+                    const data = await response.json();
+                    // Mostrar el nombre del usuario en el elemento con id "nombrePaciente"
+                    document.getElementById("nombrePaciente").textContent = `¡Bienvenido, ${data.Nombre}!`;
                 } else {
-                    console.error("No se encontró el nombre del usuario en localStorage.");
+                    console.error("No se pudo obtener la información del usuario");
+                    // Redirigir a la página de inicio de sesión si no está autenticado
+                    window.location.href = "Inicio_sesion.html";
                 }
+            } catch (error) {
+                console.error("Error al obtener la información del usuario:", error);
             }
         });
-    </script>    
+    </script>     
     <footer>
         <p>&copy; 2024 SerenaMente. Todos los derechos reservados.</p>
     </footer>

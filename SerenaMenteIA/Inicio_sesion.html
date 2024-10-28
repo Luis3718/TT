@@ -39,7 +39,7 @@
     </footer>
     
     <script>
-       document.getElementById("loginForm").addEventListener("submit", async function(event) {
+        document.getElementById("loginForm").addEventListener("submit", async function(event) {
         event.preventDefault();
         
         const formData = new FormData(event.target);
@@ -54,26 +54,22 @@
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(data),
+                credentials: "include"  // Envía las cookies con la solicitud
             });
 
             if (response.ok) {
                 const responseData = await response.json();
-                console.log("Datos de respuesta:", responseData);  // Verificar la respuesta aquí
-
-                // Almacena el token y el nombre en el almacenamiento local
-                localStorage.setItem("token", responseData.token);
                 localStorage.setItem("Nombre", responseData.Nombre);
                 alert("Inicio de sesión exitoso");
-
-                // Redirige a la página principal
                 window.location.href = "index.html";
             } else {
                 const errorData = await response.json();
+                console.log("Detalles del error:", errorData);
                 alert("Error: " + errorData.detail);
             }
         } catch (error) {
-            console.error("Error:", error);
+            console.error("Error en la solicitud:", error);
             alert("Ocurrió un error al intentar iniciar sesión.");
         }
     });
