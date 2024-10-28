@@ -1,7 +1,7 @@
 import jwt
 from datetime import datetime, timedelta
 from fastapi.responses import JSONResponse
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, Depends, HTTPException, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import Request, Depends
 from sqlalchemy.orm import Session
@@ -54,6 +54,11 @@ def login_paciente(credentials: PacienteLogin, db: Session = Depends(get_db)):
     response.set_cookie(key="token", value=token, httponly=True, max_age=3600)  # 1 hora de duración
     
     return response
+
+@app.post("/logout/")
+def logout(response: Response):
+    response.delete_cookie(key="token")
+    return {"Mensaje": "Sesión cerrada correctamente"}
 
 @app.get("/usuario-info/")
 def obtener_usuario_info(request: Request, db: Session = Depends(get_db)):

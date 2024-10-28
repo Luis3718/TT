@@ -11,10 +11,7 @@
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="#">¿Quiénes Somos?</a></li>
-            <li><a href="#">Ventajas</a></li>
-            <li><a href="#">Contenidos</a></li>
-            <li><a href="#">Preguntas Frecuentes</a></li>
-            <li><a href="Inicio_sesion.html">Iniciar Sesión</a></li>
+            <li id="authLink"><a href="#iniciar-sesion">Iniciar sesión</a></li>
         </ul>
     </nav>
 
@@ -27,29 +24,9 @@
             <p>Es un placer que nos acompañes, y estaremos aquí para apoyarte en todo momento.</p>
         </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", async function() {
-            try {
-                // Hacer la solicitud al backend para obtener el nombre del usuario
-                const response = await fetch("http://127.0.0.1:8000/usuario-info/", {
-                    method: "GET",
-                    credentials: "include"  // Esto envía la cookie con la solicitud
-                });
-    
-                if (response.ok) {
-                    const data = await response.json();
-                    // Mostrar el nombre del usuario en el elemento con id "nombrePaciente"
-                    document.getElementById("nombrePaciente").textContent = `¡Bienvenido, ${data.Nombre}!`;
-                } else {
-                    console.error("No se pudo obtener la información del usuario");
-                    // Redirigir a la página de inicio de sesión si no está autenticado
-                    window.location.href = "Inicio_sesion.html";
-                }
-            } catch (error) {
-                console.error("Error al obtener la información del usuario:", error);
-            }
-        });
-    </script>     
+    <script src="Scripts/Obtener_credenciales.js"></script>
+    <script src="Scripts/CambiarBoton.js"></script>
+    <script src="Scripts/Logout.js"></script>
     <footer>
         <p>&copy; 2024 SerenaMente. Todos los derechos reservados.</p>
     </footer>
