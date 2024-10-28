@@ -10,6 +10,7 @@ class PacienteLoginResponse(BaseModel):
     ID_Paciente: int
     Nombre: str
     Correo: EmailStr
+    token: str  # Asegúrate de que este campo esté incluido
     Mensaje: str
     
 class PacienteCreate(BaseModel):
