@@ -31,32 +31,32 @@ function selectAvatar(avatarPath) {
 }
 
 document.getElementById("registroForm").addEventListener("submit", async (event) => {
-event.preventDefault();
+    event.preventDefault();
 
-const formData = new FormData(event.target);
-const data = {};
-    
-formData.forEach((value, key) => {
-    data[key] = value;
-});
-
-try {
-    const response = await fetch("http://localhost:8000/pacientes/", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+    const formData = new FormData(event.target);
+    const data = {};
+        
+    formData.forEach((value, key) => {
+        data[key] = value;
     });
 
-    if (response.ok) {
-        alert("Paciente registrado con éxito.");
-        event.target.reset(); // Limpiar el formulario
-    } else {
-        const errorData = await response.json();
-        alert("Error al registrar el paciente: " + errorData.detail);
+    try {
+        const response = await fetch("http://localhost:8000/pacientes/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+            alert("Paciente registrado con éxito.");
+            event.target.reset(); // Limpiar el formulario
+        } else {
+            const errorData = await response.json();
+            alert("Error al registrar el paciente: " + errorData.detail);
+        }
+    } catch (error) {
+        alert("Error de conexión: " + error.message);
     }
-} catch (error) {
-    alert("Error de conexión: " + error.message);
-}
 });

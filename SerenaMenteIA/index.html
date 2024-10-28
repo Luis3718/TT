@@ -6,15 +6,24 @@
     <title>SerenaMente - Bienestar Emocional</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="inicio">
     <nav>
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="#">¿Quiénes Somos?</a></li>
             <li id="authLink"><a href="#iniciar-sesion">Iniciar sesión</a></li>
+            <li class="avatar-section">
+                <div class="avatar-box" id="avatar">
+                    <span></span>
+                </div>
+                <div class="submenu" id="submenu">
+                    <p id="username">Nombre de usuario</p>
+                    <button id="logoutBtn">Cerrar Sesión</button>
+                </div>
+            </li>            
         </ul>
     </nav>
-
+    
     <div class="main-content-container">
         <div class="content">
             <h1>¡Hola!</h1>

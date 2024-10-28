@@ -62,6 +62,25 @@ h1 {
     min-height: 100%; /* Asegura que ocupe el espacio vertical total */
 }
 
+.inicio .avatar-box {
+    width: 25px; /* Tamaño más pequeño del avatar */
+    height: 25px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Alineación del avatar en la barra de navegación */
+.inicio .avatar-section {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2; /* Quita el margen extra */
+    padding: 0; /* Quita el padding extra */
+    width: auto; /* Deja que el contenedor se ajuste al tamaño del avatar */
+}
+
+
 /* Sección de avatar */
 .avatar-section {
     display: flex;
@@ -128,6 +147,42 @@ h1 {
 /* Sección del formulario */
 .form-section {
     width: 50%; /* Ancho para ocupar más de la mitad del contenedor principal */
+}
+
+/* Estilo del submenú del avatar */
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    top: 50px; /* Ajusta la posición según sea necesario */
+    right: 10px;
+    width: 150px;
+    z-index: 1000;
+}
+
+.submenu p {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.submenu button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 5px;
+    background-color: #00A99D;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submenu button:hover {
+    background-color: #00897B;
 }
 
 .form-section .question {
