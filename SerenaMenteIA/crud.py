@@ -10,7 +10,7 @@ def verificar_credenciales(db: Session, correo: str, contraseña: str):
     paciente = db.query(Pacientes).filter(Pacientes.Correo == correo).first()
     if not paciente:
         return None
-    if not pwd_context.verify(contraseña, paciente.Contraseña):
+    if not pwd_context.verify(contraseña, paciente.Contraseña):  # Confirmación de contraseña
         return None
     return paciente
 
