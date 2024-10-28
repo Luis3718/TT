@@ -19,6 +19,17 @@ function toggleMedicacionField() {
         medicacionField.style.display = "none";
     }
 }
+
+document.querySelector(".avatar-section button").addEventListener("click", function() {
+    const gallery = document.getElementById("avatarGallery");
+    gallery.style.display = gallery.style.display === "none" ? "flex" : "none";
+});
+
+function selectAvatar(avatarPath) {
+    document.querySelector(".avatar-box span").innerHTML = `<img src="${avatarPath}" alt="Selected Avatar">`;
+    document.getElementById("avatarGallery").style.display = "none";
+}
+
 document.getElementById("registroForm").addEventListener("submit", async (event) => {
 event.preventDefault();
 
