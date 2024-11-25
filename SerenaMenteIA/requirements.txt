@@ -1,8 +1,0 @@
-fastapi
-uvicorn
-sqlalchemy
-pydantic
-passlib[bcrypt]
-mysql-connector-python
-pydantic[email]
-pyjwt
