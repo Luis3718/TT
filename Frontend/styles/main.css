@@ -1,0 +1,129 @@
+/* Submenú */
+.submenu {
+    background-color: #ffffff; /* Color uniforme para logo y menú */
+    padding: 20px 0; /* Ajuste de altura del menú */
+    display: flex;
+    justify-content: center; /* Centra los elementos del menú */
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Bordes redondeados uniformes */
+    width: 60%; /* Reducción del ancho */
+    margin: 0 auto; /* Centrado horizontal */
+    position: relative;
+    overflow: hidden; /* Corta los bordes del logo fuera del menú */
+}
+
+/* Logo */
+.logo-container {
+    position: absolute;
+    left: 20px; /* Posición izquierda */
+    top: 50%;
+    transform: translateY(-50%); /* Centrado vertical */
+}
+
+.logo {
+    height: 80px; /* Tamaño ajustado del logo */
+    width: auto; /* Mantén proporciones */
+    border-radius: 10px; /* Alineado con el diseño del menú */
+    background-color: #f5f5f5; /* Fondo uniforme */
+    display: block;
+}
+
+/* Lista del menú */
+.submenu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Espaciado entre elementos */
+    margin: 0;
+    padding: 0;
+}
+
+.submenu ul li {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.submenu ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    padding: 12px 20px; /* Tamaño del área clickeable */
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submenu ul li a:hover {
+    background-color: #ff8c00;
+    color: white;
+}
+
+/* Botón de Inicio de Sesión */
+.submenu ul li a.login {
+    background-color: #ff8c00; /* Fondo completamente naranja */
+    color: black; /* Letras negras */
+    border: none; /* Sin bordes adicionales */
+    padding: 10px 20px; /* Tamaño del botón */
+    border-radius: 8px; /* Bordes redondeados */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+.submenu ul li a.login:hover {
+    background-color: #ffa733; /* Color más claro al pasar el cursor */
+    color: black; /* Mantén letras negras */
+}
+
+/* General */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el contenido ocupe toda la altura de la ventana */
+    margin: 0;
+}
+
+/* Contenedor principal del body */
+main {
+    flex: 1; /* Permite que el footer se ajuste correctamente al fondo */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    text-align: center; /* Alinea el texto al centro */
+    padding: 40px; /* Espaciado externo */
+}
+
+.container {
+    background-color: #f9f9f9; /* Fondo claro para el contenedor */
+    padding: 50px; /* Incremento del espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    max-width: 1000px; /* Aumenta el ancho máximo */
+    width: 100%; /* Asegura que sea responsivo */
+    min-height: 300px; /* Altura mínima más grande */
+    font-family: Arial, sans-serif; /* Fuente limpia y legible */
+    font-size: 16px;
+    color: #333; /* Texto oscuro */
+}
+
+
+/* Footer */
+footer {
+    background-color: #ff8c00; /* Mismo color naranja del botón */
+    color: white; /* Texto en blanco para contraste */
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto; /* Empuja el footer hacia el fondo */
+    font-weight: bold; /* Resalta el texto */
+    font-size: 14px;
+    border-top: 2px solid #e07a00; /* Detalle de borde */
+}
+
+footer a {
+    color: white; /* Enlaces en blanco */
+    text-decoration: none; /* Quitar subrayado */
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline; /* Subrayado al pasar el cursor */
+}
