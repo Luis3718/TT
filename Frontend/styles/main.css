@@ -1,3 +1,23 @@
+/* Contenedor del logo */
+.logo-container {
+    position: absolute;
+    top: 10px; /* Ajusta según sea necesario */
+    left: 300px; /* Ajusta según sea necesario */
+    width: 150px; /* Ancho del contenedor del logo */
+    height: 150px; /* Alto del contenedor del logo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Asegura que esté por encima de otros elementos */
+}
+
+/* Estilo del logo */
+.logo {
+    max-width: 100%; /* Escala el logo al ancho del contenedor */
+    max-height: 100%; /* Escala el logo al alto del contenedor */
+    border-radius: 0%; /* Ejemplo: hace el logo circular */
+}
+
 /* Submenú */
 .submenu {
     background-color: #ffffff; /* Color uniforme para logo y menú */
@@ -7,26 +27,10 @@
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px; /* Bordes redondeados uniformes */
-    width: 60%; /* Reducción del ancho */
+    width: 40%; /* Reducción del ancho */
     margin: 0 auto; /* Centrado horizontal */
     position: relative;
     overflow: hidden; /* Corta los bordes del logo fuera del menú */
-}
-
-/* Logo */
-.logo-container {
-    position: absolute;
-    left: 20px; /* Posición izquierda */
-    top: 50%;
-    transform: translateY(-50%); /* Centrado vertical */
-}
-
-.logo {
-    height: 80px; /* Tamaño ajustado del logo */
-    width: auto; /* Mantén proporciones */
-    border-radius: 10px; /* Alineado con el diseño del menú */
-    background-color: #f5f5f5; /* Fondo uniforme */
-    display: block;
 }
 
 /* Lista del menú */
@@ -54,13 +58,12 @@
 }
 
 .submenu ul li a:hover {
-    background-color: #ff8c00;
+    background-color: #ffc000;
     color: white;
 }
 
 /* Botón de Inicio de Sesión */
 .submenu ul li a.login {
-    background-color: #ff8c00; /* Fondo completamente naranja */
     color: black; /* Letras negras */
     border: none; /* Sin bordes adicionales */
     padding: 10px 20px; /* Tamaño del botón */
@@ -70,8 +73,8 @@
 }
 
 .submenu ul li a.login:hover {
-    background-color: #ffa733; /* Color más claro al pasar el cursor */
-    color: black; /* Mantén letras negras */
+    background-color: #ffc000; /* Color más claro al pasar el cursor */
+    color: white; /* Mantén letras negras */
 }
 
 /* General */
@@ -93,10 +96,10 @@ main {
 }
 
 .container {
-    background-color: #f9f9f9; /* Fondo claro para el contenedor */
+    background-color: #ffffff; /* Fondo claro para el contenedor */
     padding: 50px; /* Incremento del espaciado interno */
     border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    
     max-width: 1000px; /* Aumenta el ancho máximo */
     width: 100%; /* Asegura que sea responsivo */
     min-height: 300px; /* Altura mínima más grande */
@@ -108,14 +111,14 @@ main {
 
 /* Footer */
 footer {
-    background-color: #ff8c00; /* Mismo color naranja del botón */
+    background-color: #ffc000; /* Mismo color naranja del botón */
     color: white; /* Texto en blanco para contraste */
     text-align: center;
     padding: 15px 0;
     margin-top: auto; /* Empuja el footer hacia el fondo */
     font-weight: bold; /* Resalta el texto */
     font-size: 14px;
-    border-top: 2px solid #e07a00; /* Detalle de borde */
+    border-top: 2px solid #ffc000; /* Detalle de borde */
 }
 
 footer a {
