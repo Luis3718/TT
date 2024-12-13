@@ -7,20 +7,26 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <!-- Submenú -->
+    <!-- Submenú y logo-->
     <header>
-        <div class="logo-container">
-            <img src="logo.jpg" alt="Logo SerenaMente IA" class="logo">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Logo SerenaMente IA" class="logo">
+            </div>
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                &#9776; <!-- Icono de tres rayitas -->
+            </button>
+            <nav class="submenu">
+                <ul>
+                    <li><a href="#">¿Quiénes Somos?</a></li>
+                    <li><a href="#">FAQ's</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#" class="login">Inicio de Sesión</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="submenu">
-            <ul>
-                <li><a href="#">¿Quiénes Somos?</a></li>
-                <li><a href="#">FAQ's</a></li>
-                <li><a href="#">Contacto</a></li>
-                <li><a href="#" class="login">Inicio de Sesión</a></li>
-            </ul>
-        </nav>
     </header>
+    
 
     <!-- Contenido principal -->
     <main>
@@ -44,4 +50,13 @@
         </div>
     </footer>
 </body>
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const submenu = document.querySelector('.submenu');
+
+    menuToggle.addEventListener('click', () => {
+        submenu.classList.toggle('active'); // Alterna la clase 'active' para mostrar/ocultar el menú
+    });
+</script>
+
 </html>
