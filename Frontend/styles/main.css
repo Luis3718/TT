@@ -34,8 +34,6 @@
     display: flex;
     justify-content: center; /* Centra los elementos del menú */
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 10px; /* Bordes redondeados uniformes */
     width: 65%; /* Reducción del ancho */
     margin: 0 auto; /* Centrado horizontal */
     position: relative;
@@ -143,24 +141,53 @@ main {
 
 /* Footer */
 footer {
-    background-color: #ffc000; /* Mismo color naranja del botón */
-    color: white; /* Texto en blanco para contraste */
-    text-align: center;
-    padding: 15px 0;
-    margin-top: auto; /* Empuja el footer hacia el fondo */
-    font-weight: bold; /* Resalta el texto */
-    font-size: 14px;
-    border-top: 2px solid #ffc000; /* Detalle de borde */
+    background-color: #ffc000; /* Fondo amarillo */
+    color: black; /* Texto en negro */
+    text-align: left; /* Alineación del texto */
+    padding: 20px; /* Espaciado interno */
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
 }
 
-footer a {
-    color: white; /* Enlaces en blanco */
-    text-decoration: none; /* Quitar subrayado */
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Espacio entre texto y botones */
+    align-items: center; /* Alinea verticalmente */
+    max-width: 1200px; /* Ancho máximo */
+    width: 100%; /* Abarca todo el ancho */
+}
+
+.footer-text h3 {
+    margin: 0;
+    font-size: 20px; /* Tamaño del encabezado */
+}
+
+.footer-text p {
+    margin: 5px 0 0;
+    font-size: 16px; /* Tamaño del texto */
+}
+
+.footer-buttons {
+    display: flex;
+    flex-direction: column; /* Botones uno debajo del otro */
+    gap: 10px; /* Espaciado entre botones */
+}
+
+.footer-btn {
+    background: linear-gradient(45deg, #9400D3, #FF00FF); /* Degradado púrpura */
+    border: none;
+    color: white; /* Texto en blanco */
+    padding: 10px 20px; /* Tamaño del botón */
+    font-size: 16px; /* Tamaño de fuente */
     font-weight: bold;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-footer a:hover {
-    text-decoration: underline; /* Subrayado al pasar el cursor */
+.footer-btn:hover {
+    transform: scale(1.05); /* Efecto de agrandamiento */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra en hover */
 }
 
 /* Media query para pantallas pequeñas */
