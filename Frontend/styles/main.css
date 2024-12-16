@@ -150,15 +150,15 @@ main {
 }
 
 .social-icon img {
-    width: 40px; /* Tamaño del icono */
+    width: 40px; /* Tamaño de icono en desktop */
     height: 40px;
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-icon img:hover {
-    transform: scale(1.1); /* Agranda el icono ligeramente */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra en hover */
+    transform: scale(1.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -265,6 +265,11 @@ footer {
     .logo {
         max-width: 20vw; /* Más pequeño para pantallas móviles */
         height: auto;
+    }
+
+    .social-icon img {
+        width: 30px;  /* Tamaño menor para móvil */
+        height: 30px;
     }
 
 }
