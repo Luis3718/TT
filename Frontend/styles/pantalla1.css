@@ -132,10 +132,59 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.749);
     max-width: 1000px; /* Aumenta el ancho máximo */
     width: 100%; /* Asegura que sea responsivo */
-    min-height: 300px; /* Altura mínima más grande */
+    min-height: 700px; /* Altura mínima más grande */
     font-family: Arial, sans-serif; /* Fuente limpia y legible */
     font-size: 16px;
     color: #333; /* Texto oscuro */
+}
+
+/* Subcontenedores rojos con posicionamiento absoluto */
+.rectangulo {
+    position: absolute;        /* Se posicionan en relación a .container */
+    background-color: white;     /* Fondo rojo */
+    /* Si quieres redondear las esquinas, agrega border-radius. */
+}
+
+.video {
+    top: 20px;
+    left: 20px;
+    width: calc(55% - 40px); /* Mitad del ancho del contenedor menos márgenes */
+    height: 330px;           /* Ajusta según tu diseño */
+}
+
+.video iframe {
+    width: 100%;
+    height: 100%;
+    display: block; /* Para evitar espacios en blanco extra */
+}
+
+.imagen {
+    top: 20px;
+    right: 20px;
+    width: calc(39% - 40px);
+    height: 330px;
+}
+
+.imagen img {
+    display: block;       /* Evita espacios extra */
+    width: 100%;          /* Ocupa todo el ancho del .imagen */
+    height: 100%;         /* Ocupa toda la altura */
+    object-fit: cover;    /* Recorta la imagen para llenar el contenedor */
+    overflow: hidden;     /* Asegura que no aparezca scroll interno */
+}
+
+.beneficios_grafico{
+    bottom: 20px;
+    left: 20px;
+    width: calc(50% - 40px); /* Ancho completo menos márgenes laterales */
+    height: 410px;            /* Ajusta según tu diseño */
+}
+
+.beneficios_texto{
+    bottom: 20px;
+    right: 20px;
+    width: calc(50% - 40px); /* Ancho completo menos márgenes laterales */
+    height: 410px;            /* Ajusta según tu diseño */
 }
 
 .social-bar {
@@ -270,6 +319,19 @@ footer {
     .social-icon img {
         width: 30px;  /* Tamaño menor para móvil */
         height: 30px;
+    }
+
+    .rectangulo {
+        position: static;     /* Quita el posicionamiento absoluto */
+        width: 100% !important; /* Ocupa todo el ancho del contenedor */
+        height: auto !important; /* Deja que la altura se ajuste al contenido */
+        margin-bottom: 20px;     /* Espaciado entre recuadros */
+    }
+
+    /* Ajustar iframe de YouTube en pantallas pequeñas */
+    .video iframe {
+        width: 100% !important;
+        height: auto !important;
     }
 
 }
