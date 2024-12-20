@@ -124,52 +124,68 @@ main {
     padding: 40px; /* Espaciado externo */
 }
 
-.container {
-    background-color: #ffffff; /* Fondo claro para el contenedor */
-    padding: 50px; /* Incremento del espaciado interno */
+
+/* Estilo del contenedor de inicio de sesión */
+.login-container {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 40px; /* Espaciado interno */
     border-radius: 10px; /* Bordes redondeados */
-    position: relative;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.749);
-    max-width: 1000px; /* Aumenta el ancho máximo */
-    width: 100%; /* Asegura que sea responsivo */
-    min-height: 300px; /* Altura mínima más grande */
-    font-family: Arial, sans-serif; /* Fuente limpia y legible */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+    max-width: 700px; /* Ancho máximo */
+    width: 100%;
+    margin: 20px auto; /* Centrado */
+    text-align: center; /* Texto centrado */
+}
+
+/* Estilo del formulario */
+.login-form label {
+    display: block;
     font-size: 16px;
     color: #333; /* Texto oscuro */
+    margin-bottom: 5px;
+    text-align: left;
 }
 
-/* Contenedor de inicio de sesión */
-.login-container {
-    width: 400px;
-    margin: 100px auto;
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.login-container h1 {
-    color: #00A99D;
+.login-form input {
+    width: 100%;
+    padding: 10px;
     margin-bottom: 20px;
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px;
+    box-sizing: border-box; /* Asegura que el padding no desborde */
 }
 
-.login-container .question {
-    margin: 15px 0;
+.login-btn {
+    background: linear-gradient(45deg, #9400D3, #FF00FF); /* Degradado púrpura */
+    color: white; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.login-container p {
-    color: #666;
-    margin-top: 15px;
+.login-btn:hover {
+    transform: scale(1.05); /* Efecto de agrandamiento */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
-.login-container a {
-    color: #00A99D;
-    text-decoration: none;
+.login-help {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
 }
 
-.login-container a:hover {
-    text-decoration: underline;
+.login-help a {
+    color: #9400D3; /* Púrpura */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.login-help a:hover {
+    text-decoration: underline; /* Subrayado en hover */
 }
 
 .social-bar {

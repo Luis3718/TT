@@ -133,7 +133,7 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.749);
     max-width: 1000px; /* Aumenta el ancho máximo */
     width: 100%; /* Asegura que sea responsivo */
-    min-height: 700px; /* Altura mínima más grande */
+    min-height: 800px; /* Altura mínima más grande */
     font-family: Arial, sans-serif; /* Fuente limpia y legible */
     font-size: 16px;
     color: #333; /* Texto oscuro */
@@ -178,12 +178,13 @@ main {
     bottom: 20px;
     left: 20px;
     width: calc(100% - 40px); /* Ancho completo menos márgenes laterales */
-    height: 410px;            /* Ajusta según tu diseño */
+    height: 510px;            /* Ajusta según tu diseño */
 }
 
 .beneficios_grafico img{
     display: block; /* Evita espacios extra */
-    max-width: fit-content;      
+    max-width: fit-content;
+    margin: auto;      
     width: 100%;          /* Ocupa todo el ancho del .imagen */
     height: 80%;         /* Ocupa toda la altura */
     object-fit: cover;    /* Recorta la imagen para llenar el contenedor */
