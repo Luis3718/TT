@@ -177,23 +177,17 @@ main {
 .beneficios_grafico{
     bottom: 20px;
     left: 20px;
-    width: calc(50% - 40px); /* Ancho completo menos márgenes laterales */
+    width: calc(100% - 40px); /* Ancho completo menos márgenes laterales */
     height: 410px;            /* Ajusta según tu diseño */
 }
 
 .beneficios_grafico img{
-    display: block;       /* Evita espacios extra */
+    display: block; /* Evita espacios extra */
+    max-width: fit-content;      
     width: 100%;          /* Ocupa todo el ancho del .imagen */
-    height: 100%;         /* Ocupa toda la altura */
+    height: 80%;         /* Ocupa toda la altura */
     object-fit: cover;    /* Recorta la imagen para llenar el contenedor */
     overflow: hidden;     /* Asegura que no aparezca scroll interno */
-}
-
-.beneficios_texto{
-    bottom: 20px;
-    right: 20px;
-    width: calc(50% - 40px); /* Ancho completo menos márgenes laterales */
-    height: 410px;            /* Ajusta según tu diseño */
 }
 
 .social-bar {
