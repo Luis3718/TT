@@ -42,8 +42,16 @@
                         <input type="email" id="correo" name="Correo" required>
                     </div>
                     <div class="question">
+                        <label for="correo">Correo alternativo:</label>
+                        <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com">
+                    </div>
+                    <div class="question">
                         <label for="contraseña">Contraseña:</label>
                         <input type="password" id="contraseña" name="Contraseña" required>
+                    </div>
+                    <div class="question">
+                        <label for="celular">Celular:</label>
+                        <input type="tel" id="celular" name="celular" pattern="[0-9]{10}" placeholder="10 dígitos" required>
                     </div>
                     <div class="question">
                         <label for="sexo">Sexo:</label>
@@ -54,8 +62,8 @@
                         </select>
                     </div>
                     <div class="question">
-                        <label for="edad">Edad:</label>
-                        <input type="number" id="edad" name="Edad" required min="18" oninput="validateAge()">
+                        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                        <input type="date" id="fechaNacimiento" name="FechaNacimiento" required>
                     </div>
                     <div class="question">
                         <label for="nivelEstudios">Nivel de Estudios:</label>
@@ -136,8 +144,10 @@
                     <div class="question">
                         <label for="enTratamiento">En Tratamiento:</label>
                         <select id="enTratamiento" name="EnTratamiento" required>
-                            <option value="false">No</option>
-                            <option value="true">Sí</option>
+                            <option value="ninguno">Ninguno</option>
+                            <option value="psicológico">Psicológico</option>
+                            <option value="psiquiátrico">Psiquiátrico</option>
+                            <option value="ambos">Ambos</option>
                         </select>
                     </div>
                     <div class="question">
@@ -151,6 +161,14 @@
                     <div class="question" id="medicacionField" style="display: none;">
                         <label for="nombreMedicacion">Nombre de Medicación:</label>
                         <input type="text" id="nombreMedicacion" name="nombre_medicacion">
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="aviso_privacidad" name="aviso_privacidad" required>
+                        <label for="aviso_privacidad">He leído y acepto el aviso de privacidad.</label>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="carta_concentimiento" name="carta_concentimiento" required>
+                        <label for="carta_concentimiento">He leído y acepto la carta de concentimiento informado.</label>
                     </div>
                     <button type="submit">Registrar</button>
                 </form>
@@ -177,7 +195,19 @@
                 <h3>¿Tienes dudas?</h3>
                 <p>Si tienes más preguntas o dudas sobre cualquier tema, puedes contactarnos y seguro te responderemos.</p>
             </div>
+            <div class="footer-buttons">
+                <button class="footer-btn">Correo electrónico</button>
+                <button class="footer-btn">Aviso de Privacidad</button>
+            </div>
         </div>
     </footer>
+    <script>
+        document.getElementById("formulario").addEventListener("submit", function(event) {
+            if (!document.getElementById("aviso").checked) {
+                alert("Debe aceptar el aviso de privacidad antes de registrar.");
+                event.preventDefault();
+            }
+        }); 
+    </script>
 </body>
 </html>

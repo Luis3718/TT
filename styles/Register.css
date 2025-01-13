@@ -212,6 +212,15 @@ main {
     box-shadow: 0 0 4px rgba(255, 192, 0, 0.5);
 }
 
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.checkbox-container input {
+    margin-right: 10px;
+}
+
 button[type="submit"] {
     width: 100%;
     padding: 10px;
