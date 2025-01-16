@@ -43,7 +43,7 @@
                     </div>
                     <div class="question">
                         <label for="correo">Correo alternativo:</label>
-                        <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
+                        <input type="email" id="correoAlternativo" name="correo" placeholder="ejemplo@correo.com" required>
                     </div>
                     <div class="question">
                         <label for="contraseña">Contraseña:</label>
@@ -399,93 +399,56 @@
         }
         }
 
-        document.getElementById("registroForm").addEventListener("submit", async function (e) {
-        e.preventDefault();
-        const email = document.getElementById("correo").value;
-        const fechaNacimiento = document.getElementById("fechaNacimiento").value;
-        const enTratamiento = document.getElementById("enTratamiento").value;
-
-        // Calcular la edad
-        const hoy = new Date();
-        const fechaNac = new Date(fechaNacimiento);
-        const edad = hoy.getFullYear() - fechaNac.getFullYear();
-        const mes = hoy.getMonth() - fechaNac.getMonth();
-        if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
-            edad--;
-        }
-
-        // Mostrar modal para menores de edad
-        if (edad < 18) {
-            const modalMenores = document.getElementById("modalMenores");
-            modalMenores.style.display = "block";
-
-            // Cerrar modal
-            document.getElementById("closeModalMenores").addEventListener("click", () => {
-                modalMenores.style.display = "none";
-            });
-
-            window.addEventListener("click", (event) => {
-                if (event.target === modalMenores) {
-                    modalMenores.style.display = "none";
-                }
-            });
-
-            return;
-        }
-
-        // Mostrar modal para personas en tratamiento
-        if (enTratamiento !== "ninguno") {
-            const modalTratamiento = document.getElementById("modalTratamiento");
-            modalTratamiento.style.display = "block";
-
-            // Cerrar modal
-            document.getElementById("closeModalTratamiento").addEventListener("click", () => {
-                modalTratamiento.style.display = "none";
-            });
-
-            window.addEventListener("click", (event) => {
-                if (event.target === modalTratamiento) {
-                    modalTratamiento.style.display = "none";
-                }
-            });
-
-            return;
-        }
-
-        // Mostrar el modal de confirmación
-        const modal = document.getElementById("modalConfirmacion");
-        modal.style.display = "block";
-
-        // Cerrar el modal de confirmación
-        document.getElementById("closeModal").addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-
-        window.addEventListener("click", (event) => {
-            if (event.target === modal) {
-                modal.style.display = "none";
+        function calcularEdad(fechaNacimiento) {
+            if (!fechaNacimiento) {
+                console.error("Fecha de nacimiento no válida");
+                return NaN;
             }
-        });
-
-        // Llamada al backend para enviar el correo
-        try {
-            const response = await fetch("/api/send-email", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email }),
-            });
-
-            if (!response.ok) {
-                alert("Hubo un problema al enviar el correo. Por favor, intenta de nuevo.");
+            const hoy = new Date();
+            const fechaNac = new Date(fechaNacimiento);
+            if (isNaN(fechaNac.getTime())) {
+                console.error("Fecha de nacimiento no es válida");
+                return NaN;
             }
-        } catch (error) {
-            console.error("Error:", error);
-            alert("Error al conectarse con el servidor.");
+            let edad = hoy.getFullYear() - fechaNac.getFullYear();
+            const mes = hoy.getMonth() - fechaNac.getMonth();
+            if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
+                edad--;
+            }
+            return edad;
         }
-    });
 
+        document.getElementById("registroForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById("correo").value;
+            const fechaNacimiento = document.getElementById("fechaNacimiento").value;
+            const enTratamiento = document.getElementById("enTratamiento").value;
+
+            const edad = calcularEdad(fechaNacimiento);
+            if (isNaN(edad)) {
+                alert("Fecha de nacimiento no válida.");
+                return;
+            }
+
+            if (edad < 18) {
+                const modalMenores = document.getElementById("modalMenores");
+                modalMenores.style.display = "flex";
+                document.getElementById("closeModalMenores").onclick = () => modalMenores.style.display = "none";
+                return;
+            }
+
+            if (enTratamiento !== "ninguno") {
+                const modalTratamiento = document.getElementById("modalTratamiento");
+                modalTratamiento.style.display = "flex";
+                document.getElementById("closeModalTratamiento").onclick = () => modalTratamiento.style.display = "none";
+                return;
+            }
+
+            const modalConfirmacion = document.getElementById("modalConfirmacion");
+            modalConfirmacion.style.display = "flex";
+            document.getElementById("closeModal").onclick = () => modalConfirmacion.style.display = "none";
+        });
     </script>
 </body>
 </html>
