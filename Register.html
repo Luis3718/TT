@@ -34,11 +34,11 @@
             <div class="form-section">
                 <form id="registroForm">
                     <div class="question">
-                        <label for="nombre">Nombre Completo:</label>
-                        <input type="text" id="nombre" name="Nombre" required>
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" name="Nombre" placeholder="Nombre(s) y apellidos" required>
                     </div>
                     <div class="question">
-                        <label for="correo">Correo Electrónico:</label>
+                        <label for="correo">Correo electrónico:</label>
                         <input type="email" id="correo" name="Correo" placeholder="ejemplo@correo.com" required>
                     </div>
                     <div class="question">
@@ -62,11 +62,11 @@
                         </select>
                     </div>
                     <div class="question">
-                        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                        <label for="fechaNacimiento">Fecha de nacimiento:</label>
                         <input type="date" id="fechaNacimiento" name="FechaNacimiento" required>
                     </div>
                     <div class="question">
-                        <label for="nivelEstudios">Nivel de Estudios:</label>
+                        <label for="nivelEstudios">Nivel de estudios:</label>
                         <select id="nivelEstudios" name="ID_NivelEstudios" required>
                             <option value="1">No estudié</option>
                             <option value="2">Primaria</option>
@@ -92,7 +92,7 @@
                         </select>
                     </div>
                     <div class="question">
-                        <label for="residencia">Lugar de Residencia:</label>
+                        <label for="residencia">Lugar de residencia:</label>
                         <select id="residencia" name="ID_Residencia" required>
                             <option value="1">Aguascalientes</option>
                             <option value="2">Baja California</option>
@@ -130,7 +130,7 @@
                         </select>
                     </div>
                     <div class="question">
-                        <label for="estadoCivil">Estado Civil:</label>
+                        <label for="estadoCivil">Estado civil:</label>
                         <select id="estadoCivil" name="ID_EstadoCivil" required>
                             <option value="1">Soltero(a)</option>
                             <option value="2">Unión libre</option>
@@ -142,7 +142,7 @@
                         </select>
                     </div>
                     <div class="question">
-                        <label for="enTratamiento">En Tratamiento:</label>
+                        <label for="enTratamiento">En tratamiento:</label>
                         <select id="enTratamiento" name="EnTratamiento" required>
                             <option value="ninguno">Ninguno</option>
                             <option value="psicológico">Psicológico</option>
@@ -151,15 +151,15 @@
                         </select>
                     </div>
                     <div class="question">
-                        <label for="tomaMedicamentos">Toma Medicamentos:</label>
+                        <label for="tomaMedicamentos">Toma medicamentos:</label>
                         <select id="tomaMedicamentos" name="TomaMedicamentos" required onchange="toggleMedicacionField()">
                             <option value="No">No</option>
-                            <option value="No aplica">No aplica</option>                            
+                            <option value="No aplica">No aplica</option>
                             <option value="Sí">Sí</option>
                         </select>
                     </div>
                     <div class="question" id="medicacionField" style="display: none;">
-                        <label for="nombreMedicacion">Nombre de Medicación:</label>
+                        <label for="nombreMedicacion">Nombre de medicación:</label>
                         <input type="text" id="nombreMedicacion" name="nombre_medicacion">
                     </div>
                     <div class="checkbox-container">
@@ -171,7 +171,7 @@
                     <div class="checkbox-container">
                         <input type="checkbox" id="carta_concentimiento" name="carta_concentimiento" required>
                         <label for="carta_concentimiento">
-                            He leído y acepto la <span class="carta_concentimiento" id="carta_concentimientoLink">carta de consentimiento informado</span>.
+                            He leído y acepto el <span class="carta_concentimiento" id="carta_concentimientoLink">formato de consentimiento informado</span>.
                         </label>
                     </div>
                     <button type="submit">Registrar</button>
@@ -185,8 +185,6 @@
         <div class="modal-content">
             <span class="close" id="closeAviso">&times;</span>
             <h1>Aviso de Privacidad Integral</h1>
-            <h2>Proyecto PAPIIT 300223: Aceptación y utilidad clínica de una intervención de telepsicología autoaplicada
-                para la promoción del bienestar como elemento de prevención en salud mental.</h2>
             <p>La Facultad de Estudios Superiores Iztacala (FESI) de la Universidad Nacional Autónoma de México (UNAM),
                 ubicada en Avenida de los Barrios No. 1, colonia Los Reyes Ixtacala, Tlalnepantla de Baz, Estado de México,
                 C.P. 54090 y es responsable del tratamiento de sus datos personales. Recopilamos sus datos personales a
@@ -299,6 +297,33 @@
         </div>
     </div>
 
+    <!-- Modal para menores de edad -->
+    <div id="modalMenores" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModalMenores">&times;</span>
+            <h2>Registro no permitido</h2>
+            <p>Lamentablemente, este sistema solo está disponible para mayores de 18 años.</p>
+        </div>
+    </div>
+
+    <!-- Modal para personas en tratamiento -->
+    <div id="modalTratamiento" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModalTratamiento">&times;</span>
+            <h2>Registro no permitido</h2>
+            <p>Lamentablemente, este sistema no puede ser utilizado por personas que se encuentren en tratamiento psicológico o psiquiátrico.</p>
+        </div>
+    </div>
+
+    <!-- Modal para confirmación de correo -->
+    <div id="modalConfirmacion" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>¡Registro exitoso!</h2>
+            <p>Se ha enviado un correo de confirmación a la dirección proporcionada. Por favor, verifica tu correo y confirma tu registro.</p>
+        </div>
+    </div>
+
     <div class="social-bar">
         <a href="https://www.facebook.com" target="_blank" class="social-icon">
             <img src="imagenes/Logo_facebook.png" alt="Facebook">
@@ -362,6 +387,104 @@
                 modalCarta.style.display = 'none';
             }
         });
+
+        function toggleMedicacionField() {
+        const tomaMedicamentos = document.getElementById("tomaMedicamentos").value;
+        const medicacionField = document.getElementById("medicacionField");
+
+        if (tomaMedicamentos === "Sí") {
+            medicacionField.style.display = "block";
+        } else {
+            medicacionField.style.display = "none";
+        }
+        }
+
+        document.getElementById("registroForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const email = document.getElementById("correo").value;
+        const fechaNacimiento = document.getElementById("fechaNacimiento").value;
+        const enTratamiento = document.getElementById("enTratamiento").value;
+
+        // Calcular la edad
+        const hoy = new Date();
+        const fechaNac = new Date(fechaNacimiento);
+        const edad = hoy.getFullYear() - fechaNac.getFullYear();
+        const mes = hoy.getMonth() - fechaNac.getMonth();
+        if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
+            edad--;
+        }
+
+        // Mostrar modal para menores de edad
+        if (edad < 18) {
+            const modalMenores = document.getElementById("modalMenores");
+            modalMenores.style.display = "block";
+
+            // Cerrar modal
+            document.getElementById("closeModalMenores").addEventListener("click", () => {
+                modalMenores.style.display = "none";
+            });
+
+            window.addEventListener("click", (event) => {
+                if (event.target === modalMenores) {
+                    modalMenores.style.display = "none";
+                }
+            });
+
+            return;
+        }
+
+        // Mostrar modal para personas en tratamiento
+        if (enTratamiento !== "ninguno") {
+            const modalTratamiento = document.getElementById("modalTratamiento");
+            modalTratamiento.style.display = "block";
+
+            // Cerrar modal
+            document.getElementById("closeModalTratamiento").addEventListener("click", () => {
+                modalTratamiento.style.display = "none";
+            });
+
+            window.addEventListener("click", (event) => {
+                if (event.target === modalTratamiento) {
+                    modalTratamiento.style.display = "none";
+                }
+            });
+
+            return;
+        }
+
+        // Mostrar el modal de confirmación
+        const modal = document.getElementById("modalConfirmacion");
+        modal.style.display = "block";
+
+        // Cerrar el modal de confirmación
+        document.getElementById("closeModal").addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        // Llamada al backend para enviar el correo
+        try {
+            const response = await fetch("/api/send-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email }),
+            });
+
+            if (!response.ok) {
+                alert("Hubo un problema al enviar el correo. Por favor, intenta de nuevo.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Error al conectarse con el servidor.");
+        }
+    });
 
     </script>
 </body>
