@@ -34,15 +34,21 @@
             <div class="form-section">
                 <form id="registroForm">
                     <div class="question">
-                        <label for="nombre">Nombre completo:</label>
-                        <input type="text" id="nombre" name="Nombre" placeholder="Nombre(s) y apellidos" required>
+                        <label for="nombre">Nombre(s):</label>
+                        <input type="text" id="nombre" name="Nombre" placeholder="Nombre(s)" required>
+                    </div>
+                    <div class="question">
+                        <label for="apellidos">Apellidos:</label>
+                        <input type="text" id="apellidos" name="apellidos" placeholder="Apellido paterno y materno" required>
                     </div>
                     <div class="question">
                         <label for="correo">Correo electrónico:</label>
                         <input type="email" id="correo" name="Correo" placeholder="ejemplo@correo.com" required>
                     </div>
                     <div class="question">
-                        <label for="correo">Correo alternativo:</label>
+                        <label for="correo">Correo alternativo:
+                            <span class="help-icon" title="Este correo lo usaremos solo en caso de que tu correo electronico principal presente fallas o no podamos usarlo para conctactarte">?</span>
+                        </label>
                         <input type="email" id="correoAlternativo" name="correo" placeholder="ejemplo@correo.com" required>
                     </div>
                     <div class="question">
