@@ -18,12 +18,14 @@ class PacienteBase(BaseModel):
     NombreMedicacion: str | None = None
     AvisoPrivacidad: bool
     CartaConsentimiento: bool
+    EsApto: bool | None = None  # Nuevo campo agregado
 
 class PacienteCreate(PacienteBase):
     Contraseña: str
+    EsApto: bool | None = None  # Campo opcional pero no necesario en la entrada
 
 class Paciente(PacienteBase):
     ID_Paciente: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True  # Esto habilita la conversión desde modelos de SQLAlchemy

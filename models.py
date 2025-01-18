@@ -22,3 +22,4 @@ class Paciente(Base):
     NombreMedicacion = Column(String(255))
     AvisoPrivacidad = Column(Boolean, nullable=False)
     CartaConsentimiento = Column(Boolean, nullable=False)
+    EsApto = Column(Boolean, default=False, nullable=False)  # Nuevo campo
