@@ -61,9 +61,13 @@
                     </div>
                     <div class="question">
                         <label for="celular">Celular:
-                            <span class="help-icon" title="Solicitamos tu número de celular para mantenerte al tanto exclusivamente de los procedimientos relacionados con la intervención. Para más detalles, te invitamos a revisar el consentimiento informado.">?</span>
+                            <span class="help-icon" onclick="toggleTooltip(this)">?</span>
                         </label>
                         <input type="tel" id="celular" name="celular" pattern="[0-9]{10}" placeholder="10 dígitos" required>
+                        <div class="tooltip">
+                            <span class="close-tooltip" onclick="closeTooltip(this)">×</span>
+                            Solicitamos tu número de celular para mantenerte al tanto exclusivamente de los procedimientos relacionados con la intervención. Para más detalles, te invitamos a revisar el consentimiento informado.
+                        </div>
                     </div>
                     <div class="question">
                         <label for="sexo">Sexo:</label>
@@ -398,7 +402,7 @@
         <div class="modal-content">
             <span class="close" id="closeModalMenores">&times;</span>
             <h2>Registro no permitido</h2>
-            <p>Lamentablemente, este sistema solo está disponible para mayores de 18 años.</p>
+            <p>Gracias por tu interés. El programa de investigación requiere que seas mayor de edad. Si piensas que requieres ayuda puedes llamar a la Línea de la Vida 800 9112000.</p>
         </div>
     </div>
 
@@ -407,7 +411,7 @@
         <div class="modal-content">
             <span class="close" id="closeModalTratamiento">&times;</span>
             <h2>Registro no permitido</h2>
-            <p>Lamentablemente, este sistema no puede ser utilizado por personas que se encuentren en tratamiento psicológico o psiquiátrico.</p>
+            <p>Nos alegra saber que estás atendiendote con un profesional de la salud, sin embargo, no es posible incluirlo en este programa de investigación. Gracias por tu interés y comprensión.</p>
         </div>
     </div>
 

@@ -158,19 +158,19 @@ main {
 .tooltip {
     display: none; /* Oculto inicialmente */
     position: absolute; /* Posiciona el tooltip relativo al contenedor */
-    top: 25px; /* Baja el tooltip justo debajo del signo de interrogación */
-    left: 0; /* Alineado con el contenedor */
+    top: 35px; /* Ajusta la distancia debajo del ícono */
+    left: 50%; /* Centra el tooltip horizontalmente */
+    transform: translateX(-50%); /* Ajusta el centro relativo al icono */
     background-color: white;
     color: black;
-    padding: 20px; /* Espaciado interno */
+    padding: 22px; /* Espaciado interno */
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     font-size: 14px;
-    width: 450px; /* Ancho del tooltip */
+    width: 500px; /* Ancho del tooltip */
     z-index: 1000;
     text-align: justify;
-    transform: translateX(-50%); /* Centra horizontalmente respecto al ícono */
 }
 
 .tooltip.active {

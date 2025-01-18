@@ -139,6 +139,10 @@ main {
     color: #333; /* Texto oscuro */
 }
 
+.texto {
+    text-align: justify;
+}
+
 .team-section {
     text-align: center;
     padding: 40px 0;
