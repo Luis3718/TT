@@ -155,20 +155,39 @@ main {
     position: relative;
 }
 
-.help-icon:hover::after {
-    content: attr(title);
-    position: absolute;
-    top: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: white;
-    padding: 5px 10px;
+.tooltip {
+    display: none; /* Oculto inicialmente */
+    position: absolute; /* Posiciona el tooltip relativo al contenedor */
+    top: 25px; /* Baja el tooltip justo debajo del signo de interrogación */
+    left: 0; /* Alineado con el contenedor */
+    background-color: white;
+    color: black;
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #ccc;
     border-radius: 5px;
-    white-space: nowrap;
-    font-size: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    width: 450px; /* Ancho del tooltip */
     z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: justify;
+    transform: translateX(-50%); /* Centra horizontalmente respecto al ícono */
+}
+
+.tooltip.active {
+    display: block; /* Se muestra cuando está activo */
+}
+
+
+.close-tooltip {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 
@@ -216,6 +235,7 @@ main {
 .question {
     margin-bottom: 15px;
     text-align: left; /* Alinea a la izquierda cada pregunta */
+    position: relative;
 }
 
 .question label {

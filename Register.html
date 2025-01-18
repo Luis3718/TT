@@ -45,18 +45,24 @@
                         <label for="correo">Correo electrónico:</label>
                         <input type="email" id="correo" name="Correo" placeholder="ejemplo@correo.com" required>
                     </div>
-                    <div class="question">
+                    <div class="question" style="position: relative;">
                         <label for="correo">Correo alternativo:
-                            <span class="help-icon" title="Este correo lo usaremos solo en caso de que tu correo electronico principal presente fallas o no podamos usarlo para conctactarte">?</span>
+                            <span class="help-icon" onclick="toggleTooltip(this)">?</span>
                         </label>
                         <input type="email" id="correoAlternativo" name="correo" placeholder="ejemplo@correo.com" required>
-                    </div>
+                        <div class="tooltip">
+                            <span class="close-tooltip" onclick="closeTooltip(this)">×</span>
+                            Introduce un correo alternativo para contactarte en caso de problemas con el principal.
+                        </div>
+                    </div>                                                                                                                                         
                     <div class="question">
                         <label for="contraseña">Contraseña:</label>
                         <input type="password" id="contraseña" name="Contraseña" required>
                     </div>
                     <div class="question">
-                        <label for="celular">Celular:</label>
+                        <label for="celular">Celular:
+                            <span class="help-icon" title="Solicitamos tu número de celular para mantenerte al tanto exclusivamente de los procedimientos relacionados con la intervención. Para más detalles, te invitamos a revisar el consentimiento informado.">?</span>
+                        </label>
                         <input type="tel" id="celular" name="celular" pattern="[0-9]{10}" placeholder="10 dígitos" required>
                     </div>
                     <div class="question">
@@ -539,6 +545,25 @@
             modalConfirmacion.style.display = "flex";
             document.getElementById("closeModal").onclick = () => modalConfirmacion.style.display = "none";
         });
+        
+        // Funcion para hacer aparecer el recuadro del signo de interrogacion
+        function toggleTooltip(icon) {
+            const question = icon.closest('.question'); // Encuentra el contenedor de la pregunta
+            const tooltip = question.querySelector('.tooltip'); // Encuentra el tooltip dentro de la pregunta
+            if (tooltip) {
+                tooltip.classList.toggle('active'); // Alterna la visibilidad
+            } else {
+                console.error('No se encontró el tooltip relacionado.');
+            }
+        }
+
+        // Funcion para cerrar el recuadro del signo de interrogacion
+        function closeTooltip(button) {
+            const tooltip = button.closest('.tooltip'); // Encuentra el tooltip relacionado
+            if (tooltip) {
+                tooltip.classList.remove('active'); // Remueve la clase 'active' para ocultarlo
+            }
+        }
     </script>
 </body>
 </html>
