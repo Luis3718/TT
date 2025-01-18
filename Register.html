@@ -449,7 +449,69 @@
             </div>
         </div>
     </footer>
-    <script>
+    <script>   
+        // Funcion que conecta con mi API y el endpoint de registro
+        async function enviarRegistro(data) {
+            try {
+                const response = await fetch("http://127.0.0.1:8000/pacientes/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error(`Error: ${errorData.detail}`);
+                    alert(`Error: ${errorData.detail}`);
+                    return false;
+                }
+
+                const result = await response.json();
+                console.log("¡Registro exitoso!", result);
+                alert("¡Registro exitoso!");
+                return true;
+            } catch (error) {
+                console.error("Error al registrar:", error);
+                alert("Hubo un error al registrar. Intenta nuevamente.");
+                return false;
+            }
+        }    
+    
+        // Logica para obtener los datos de mi formulario de registro
+        // Lógica para recopilar los datos del formulario y enviar el registro
+        document.getElementById("registroForm").addEventListener("submit", async function (e) {
+            e.preventDefault(); // Evita el comportamiento predeterminado del formulario
+
+            const data = {
+                Nombre: document.getElementById("nombre").value,
+                Apellidos: document.getElementById("apellidos").value,
+                Correo: document.getElementById("correo").value,
+                CorreoAlternativo: document.getElementById("correoAlternativo").value,
+                Contraseña: document.getElementById("contraseña").value,
+                Celular: document.getElementById("celular").value,
+                Sexo: document.getElementById("sexo").value,
+                FechaNacimiento: document.getElementById("fechaNacimiento").value,
+                ID_NivelEstudios: parseInt(document.getElementById("nivelEstudios").value),
+                ID_Ocupacion: parseInt(document.getElementById("ocupacion").value),
+                ID_Residencia: parseInt(document.getElementById("residencia").value),
+                ID_EstadoCivil: parseInt(document.getElementById("estadoCivil").value),
+                EnTratamiento: document.getElementById("enTratamiento").value,
+                TomaMedicamentos: document.getElementById("tomaMedicamentos").value,
+                NombreMedicacion: document.getElementById("nombreMedicacion").value || null,
+                AvisoPrivacidad: document.getElementById("aviso_privacidad").checked,
+                CartaConsentimiento: document.getElementById("carta_concentimiento").checked,
+            };
+            
+            const registroExitoso = await enviarRegistro(data); // Llama a enviarRegistro
+            if (registroExitoso) {
+                // Opcional: Redirigir o mostrar un mensaje
+                console.log("El registro fue exitoso.");
+                alert("Registro completado con éxito");
+            }
+        });
+
         // Abrir y cerrar modal de Aviso de Privacidad
         const avisoPrivacidadLink = document.getElementById('avisoPrivacidadLink');
         const modalAviso = document.getElementById('modalAviso');
