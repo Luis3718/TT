@@ -53,6 +53,7 @@ CREATE TABLE Pacientes (
     CartaConsentimiento BOOLEAN NOT NULL,
     FechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     EsApto BOOLEAN DEFAULT FALSE,
+    CorreoVerificado BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (ID_NivelEstudios) REFERENCES NivelesEstudios(ID_NivelEstudios),
     FOREIGN KEY (ID_Ocupacion) REFERENCES Ocupaciones(ID_Ocupacion),
     FOREIGN KEY (ID_Residencia) REFERENCES Residencias(ID_Residencia),

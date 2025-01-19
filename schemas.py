@@ -19,6 +19,7 @@ class PacienteBase(BaseModel):
     AvisoPrivacidad: bool
     CartaConsentimiento: bool
     EsApto: bool | None = None  # Nuevo campo agregado
+    CorreoVerificado: bool | None = None  # Nuevo campo
 
 class PacienteCreate(PacienteBase):
     Contraseña: str

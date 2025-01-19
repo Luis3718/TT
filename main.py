@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import pacientes  # Importa los endpoints desde la carpeta routers
+from routers import pacientes, auth # Importa los endpoints desde la carpeta routers
 
 app = FastAPI()
 
@@ -15,7 +15,4 @@ app.add_middleware(
 
 # Incluye los routers
 app.include_router(pacientes.router)
-
-@app.get("/")
-def read_root():
-    return {"message": "Bienvenido a la API de SerenaMente"}
+app.include_router(auth.router)  # Registra el router de autenticación

@@ -21,3 +21,5 @@ venv/
 
 # Archivos de configuración de logs
 *.log
+
+smtp_config.txt

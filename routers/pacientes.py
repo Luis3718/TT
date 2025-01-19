@@ -21,6 +21,10 @@ from datetime import date
 
 @router.post("/", response_model=schemas.Paciente)
 def crear_paciente(paciente: schemas.PacienteCreate, db: Session = Depends(get_db)):
+    # Verificar si el correo ya existe
+    db_paciente = db.query(models.Paciente).filter(models.Paciente.Correo == paciente.Correo).first()
+    if db_paciente:
+        raise HTTPException(status_code=400, detail="El correo ya está registrado.")
     # Calcular la edad
     hoy = date.today()
     fecha_nacimiento = paciente.FechaNacimiento
@@ -58,7 +62,7 @@ def crear_paciente(paciente: schemas.PacienteCreate, db: Session = Depends(get_d
     # Enviar correo solo si es apto
     if es_apto:
         print("Hola")
-        #enviar_correo_verificacion(paciente.Correo)
+        enviar_correo_verificacion(paciente.Correo)
 
     return nuevo_paciente
 
