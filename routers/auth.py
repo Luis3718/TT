@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.responses import HTMLResponse
 from itsdangerous import URLSafeTimedSerializer
 from correo import verificar_token_verificacion
 from sqlalchemy.orm import Session
@@ -47,4 +48,5 @@ def verificar_correo(token: str, db: Session = Depends(get_db)):
 
     usuario.CorreoVerificado = True
     db.commit()
-    return {"message": "Correo verificado exitosamente"}
+    content = open("verify_success.html", encoding="utf-8").read()
+    return HTMLResponse(content=content, status_code=200)
