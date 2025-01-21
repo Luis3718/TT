@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import HTMLResponse
 from itsdangerous import URLSafeTimedSerializer
 from correo import verificar_token_verificacion
+from correo import enviar_correo_recuperacion
 from sqlalchemy.orm import Session
 from database import get_db
 from models import Paciente
@@ -16,6 +17,10 @@ router = APIRouter(
 class LoginRequest(BaseModel):
     Correo: str
     Contraseña: str
+
+class ResetPasswordRequest(BaseModel):
+    Token: str
+    NuevaContraseña: str
 
 @router.post("/login")
 def login(request: LoginRequest, db: Session = Depends(get_db)):
@@ -50,3 +55,40 @@ def verificar_correo(token: str, db: Session = Depends(get_db)):
     db.commit()
     content = open("verify_success.html", encoding="utf-8").read()
     return HTMLResponse(content=content, status_code=200)
+
+@router.post("/forgot-password")
+def forgot_password(request: LoginRequest, db: Session = Depends(get_db)):
+    usuario = db.query(Paciente).filter(Paciente.Correo == request.Correo).first()
+
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+
+    if not usuario.CorreoVerificado:
+        raise HTTPException(status_code=403, detail="Debes verificar tu correo antes de recuperar tu contraseña")
+
+    # Enviar correo de recuperación
+    enviar_correo_recuperacion(usuario.Correo)
+    return {"message": "Instrucciones para recuperar tu contraseña fueron enviadas a tu correo"}
+
+
+@router.post("/reset-password")
+def reset_password(request: ResetPasswordRequest, db: Session = Depends(get_db)):
+    try:
+        # Validar el token
+        correo = verificar_token_verificacion(request.Token)
+        if not correo:
+            raise HTTPException(status_code=400, detail="Token inválido o expirado")
+    except Exception:
+        raise HTTPException(status_code=400, detail="Token inválido o expirado")
+
+    # Buscar al usuario por correo
+    usuario = db.query(Paciente).filter(Paciente.Correo == correo).first()
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+
+    # Actualizar la contraseña
+    nueva_contraseña_hashed = hashlib.sha256(request.NuevaContraseña.encode("utf-8")).hexdigest()
+    usuario.Contraseña = nueva_contraseña_hashed
+    db.commit()
+
+    return {"message": "Contraseña actualizada exitosamente"}

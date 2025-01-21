@@ -30,18 +30,14 @@
     <!-- Contenido principal -->
     <main>
         <div class="container login-container">
-            <h1>Inicia Sesión</h1>
-            <form id="loginForm" class="login-form">
+            <h1>Recuperar Contraseña</h1>
+            <form id="recoverForm" class="login-form">
                 <label for="email">Correo electrónico</label>
                 <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required>
                 
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
-                
-                <button type="submit" class="login-btn">Iniciar Sesión</button>
+                <button type="submit" class="login-btn">Enviar Instrucciones</button>
             </form>
-            <p class="login-help">¿No tienes cuenta? <a href="Register.html">Regístrate aquí</a></p>
-            <p class="login-help">¿Olvidaste tu contrasña? <a href="RecuperarContraseña.html">Recuperar contraseña</a></p>
+            <p class="login-help">¿Ya tienes cuenta? <a href="Login.html">Inicia sesión aquí</a></p>
         </div>
     </main>    
 
@@ -73,39 +69,35 @@
     
 </body>
 <script>
-    // Funcionalidad del login
-    document.getElementById("loginForm").addEventListener("submit", async function(event) {
-        event.preventDefault(); // Evita que se recargue la página
+    // Funcionalidad de recuperacion de contraseña
+    document.getElementById("recoverForm").addEventListener("submit", async function(event) {
+    event.preventDefault(); // Evita que se recargue la página
 
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value;
 
-        try {
-            const response = await fetch("http://localhost:8000/auth/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    Correo: email,
-                    Contraseña: password
-                })
-            });
+    try {
+        const response = await fetch("http://localhost:8000/auth/forgot-password", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                Correo: email
+            })
+        });
 
-            if (!response.ok) {
-                const error = await response.json();
-                alert(`Error: ${error.detail}`);
-                return;
-            }
-
-            const data = await response.json();
-            alert(data.message); // Muestra el mensaje de éxito
-            // Redirigir al usuario a otra página, si es necesario
-            window.location.href = "/dashboard.html";
-        } catch (error) {
-            console.error("Error durante el inicio de sesión:", error);
-            alert("Ocurrió un error al conectar con el servidor.");
+        if (!response.ok) {
+            const error = await response.json();
+            alert(`Error: ${error.detail}`);
+            return;
         }
+
+        const data = await response.json();
+        alert(data.message); // Muestra el mensaje de éxito
+    } catch (error) {
+        console.error("Error durante la recuperación de contraseña:", error);
+        alert("Ocurrió un error al conectar con el servidor.");
+    }
     });
     
     // Funcionalidad dle menu de hamburguesa
