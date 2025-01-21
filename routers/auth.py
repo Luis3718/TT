@@ -18,6 +18,9 @@ class LoginRequest(BaseModel):
     Correo: str
     Contraseña: str
 
+class ForgotPasswordRequest(BaseModel):
+    Correo: str
+
 class ResetPasswordRequest(BaseModel):
     Token: str
     NuevaContraseña: str
@@ -57,7 +60,7 @@ def verificar_correo(token: str, db: Session = Depends(get_db)):
     return HTMLResponse(content=content, status_code=200)
 
 @router.post("/forgot-password")
-def forgot_password(request: LoginRequest, db: Session = Depends(get_db)):
+def forgot_password(request: ForgotPasswordRequest, db: Session = Depends(get_db)):
     usuario = db.query(Paciente).filter(Paciente.Correo == request.Correo).first()
 
     if not usuario:
@@ -70,6 +73,16 @@ def forgot_password(request: LoginRequest, db: Session = Depends(get_db)):
     enviar_correo_recuperacion(usuario.Correo)
     return {"message": "Instrucciones para recuperar tu contraseña fueron enviadas a tu correo"}
 
+@router.get("/reset-password")
+def reset_password_page(token: str):
+    # Verificar si el token es válido antes de mostrar la página
+    correo = verificar_token_verificacion(token)
+    if not correo:
+        raise HTTPException(status_code=400, detail="Token inválido o expirado")
+    
+    # Cargar una página HTML con el formulario para restablecer la contraseña
+    content = open("reset_password_form.html", encoding="utf-8").read()
+    return HTMLResponse(content=content, status_code=200)
 
 @router.post("/reset-password")
 def reset_password(request: ResetPasswordRequest, db: Session = Depends(get_db)):
