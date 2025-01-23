@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routers import pacientes, auth # Importa los endpoints desde la carpeta routers
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
@@ -12,6 +13,8 @@ app.add_middleware(
     allow_methods=["*"],  # Permite todos los métodos HTTP (GET, POST, etc.)
     allow_headers=["*"],  # Permite todos los encabezados
 )
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Incluye los routers
 app.include_router(pacientes.router)
