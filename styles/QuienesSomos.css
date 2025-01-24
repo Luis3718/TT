@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    font-family: 'Montserrat';
+}
+
 .header-container {
     width: 65vw; /* Ajusta el ancho del contenedor */
     height: 7vw; /* Ajusta la altura proporcional */
@@ -83,6 +89,10 @@
 .submenu ul li a.login:hover {
     background-color: #ffc000; /* Color más claro al pasar el cursor */
     color: white; /* Mantén letras negras */
+}
+
+.submenu ul li a {
+    font-size: 0.875rem; /* Ajustar tamaño relativo */
 }
 
 /* Estilos generales */
@@ -221,7 +231,7 @@ main {
     max-width: 600px; /* Máximo ancho */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    text-align: justify;
 }
 
 .modal-content h3 {
@@ -270,6 +280,63 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
+.banner-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa; /* Fondo claro */
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap; /* Adaptación para pantallas pequeñas */
+}
+
+.banner-logo img {
+    max-height: 120px; /* Ajusta el tamaño del logo de SerenaMente */
+    max-width: 120px;
+}
+
+.banner-text {
+    flex: 1; /* Ocupa el espacio disponible */
+    text-align: center;
+    padding: 0 20px; /* Espaciado horizontal */
+}
+
+.banner-text p {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+}
+
+.banner-logos {
+    display: flex;
+    gap: 20px; /* Espacio entre los logos */
+    justify-content: flex-end; /* Alinea los logos a la derecha */
+}
+
+.logo-custom {
+    max-height: 500px; /* Ajusta la altura máxima específica para este logo */
+    max-width: 500px; /* Ajusta el ancho máximo específico para este logo */
+    object-fit: contain; /* Asegura que el logo no se distorsione */
+}
+
+.banner-logos img {
+    max-height: 100px; /* Tamaño uniforme para todos los logos */
+    max-width: 100px;
+    object-fit: contain; /* Escala las imágenes sin distorsionarlas */
+}
+
+.banner-logos a {
+    text-decoration: none; /* Quita subrayados */
+}
+
+.banner-logos a img {
+    transition: transform 0.3s ease; /* Suaviza el efecto al pasar el cursor */
+}
+
+.banner-logos a img:hover {
+    transform: scale(1.1); /* Amplía ligeramente la imagen al pasar el cursor */
+}
 
 /* Footer */
 footer {
@@ -320,6 +387,12 @@ footer {
 .footer-btn:hover {
     transform: scale(1.05); /* Efecto de agrandamiento */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra en hover */
+}
+
+.footer-buttons a.footer-btn {
+    text-decoration: none; /* Quita el subrayado */
+    display: inline-block; /* Comporta como un botón */
+    text-align: center; /* Centra el texto */
 }
 
 /* Media query para pantallas pequeñas */

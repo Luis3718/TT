@@ -6,4 +6,3 @@ mysqlclient
 pymysql
 hashlib
 itsdangerous
-sendgrid
