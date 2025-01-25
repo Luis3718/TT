@@ -102,38 +102,42 @@
 <script>
     // Funcionalidad del login
     document.getElementById("loginForm").addEventListener("submit", async function(event) {
-        event.preventDefault(); // Evita que se recargue la página
+    event.preventDefault(); // Evita que se recargue la página
 
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-        try {
-            const response = await fetch("http://localhost:8000/auth/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    Correo: email,
-                    Contraseña: password
-                })
-            });
+    try {
+        const response = await fetch("http://localhost:8000/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                Correo: email,
+                Contraseña: password
+            })
+        });
 
-            if (!response.ok) {
-                const error = await response.json();
-                alert(`Error: ${error.detail}`);
-                return;
-            }
-
-            const data = await response.json();
-            alert(data.message); // Muestra el mensaje de éxito
-            // Redirigir al usuario a otra página, si es necesario
-            window.location.href = "/dashboard.html";
-        } catch (error) {
-            console.error("Error durante el inicio de sesión:", error);
-            alert("Ocurrió un error al conectar con el servidor.");
+        if (!response.ok) {
+            const error = await response.json();
+            alert(`Error: ${error.detail}`);
+            return;
         }
+
+        const data = await response.json();
+        // Guardar el token en localStorage
+        localStorage.setItem("token", data.access_token);
+        alert(data.message); // Muestra el mensaje de éxito
+
+        // Redirigir al usuario a otra página, si es necesario
+        window.location.href = "/dashboard.html";
+    } catch (error) {
+        console.error("Error durante el inicio de sesión:", error);
+        alert("Ocurrió un error al conectar con el servidor.");
+    }
     });
+
     
     // Funcionalidad dle menu de hamburguesa
     const menuToggle = document.querySelector('.menu-toggle');

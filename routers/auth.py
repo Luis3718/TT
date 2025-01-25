@@ -8,11 +8,18 @@ from database import get_db
 from models import Paciente
 from pydantic import BaseModel
 import hashlib
+import jwt
+from datetime import datetime, timedelta
+from fastapi.security import HTTPBearer
+from fastapi import Security
 
 router = APIRouter(
     prefix="/auth",
     tags=["Autenticación"]
 )
+
+SECRET_KEY = "HBAFIQBbhb2u3412bHB"  # Usa una clave secreta segura y guárdala en un lugar seguro
+ALGORITHM = "HS256"
 
 class LoginRequest(BaseModel):
     Correo: str
@@ -24,6 +31,17 @@ class ForgotPasswordRequest(BaseModel):
 class ResetPasswordRequest(BaseModel):
     Token: str
     NuevaContraseña: str
+
+security = HTTPBearer()
+
+def obtener_usuario_actual(token: str = Security(security)):
+    try:
+        payload = jwt.decode(token.credentials, SECRET_KEY, algorithms=[ALGORITHM])
+        return {"id": payload["id"], "nombre": payload["nombre"]}
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=401, detail="Token expirado")
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=401, detail="Token inválido")
 
 @router.post("/login")
 def login(request: LoginRequest, db: Session = Depends(get_db)):
@@ -41,9 +59,17 @@ def login(request: LoginRequest, db: Session = Depends(get_db)):
 
     if not usuario.CorreoVerificado:
         raise HTTPException(status_code=403, detail="Debes verificar tu correo para usar el sistema")
+ 
+    # Crear el token JWT
+    payload = {
+        "id": usuario.ID_Paciente,
+        "nombre": usuario.Nombre,
+        "exp": datetime.utcnow() + timedelta(hours=2)  # Expira en 2 horas
+    }
+    token = jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
 
-    return {"message": "Login exitoso"}
-
+    return {"access_token": token, "message": "Login exitoso"}  
+    
 @router.get("/verify")
 def verificar_correo(token: str, db: Session = Depends(get_db)):
     correo = verificar_token_verificacion(token)
