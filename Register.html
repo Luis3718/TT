@@ -656,6 +656,13 @@
                 tooltip.classList.remove('active'); // Remueve la clase 'active' para ocultarlo
             }
         }
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const submenu = document.querySelector('.submenu');
+
+        menuToggle.addEventListener('click', () => {
+            submenu.classList.toggle('active'); // Alterna la clase 'active' para mostrar/ocultar el menú
+        });
     </script>
 </body>
 </html>

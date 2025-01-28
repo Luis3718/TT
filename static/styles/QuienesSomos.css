@@ -280,15 +280,16 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
+/* Ajuste para la sección del banner */
 .banner-section {
     display: flex;
+    flex-wrap: wrap; /* Permite que los elementos pasen a nuevas filas */
     align-items: center;
-    justify-content: space-between;
-    background-color: #f8f9fa; /* Fondo claro */
+    justify-content: center; /* Centra los elementos en pantallas pequeñas */
+    background-color: #f8f9fa;
     padding: 20px;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-    flex-wrap: wrap; /* Adaptación para pantallas pequeñas */
 }
 
 .banner-logo img {
@@ -320,10 +321,12 @@ main {
     object-fit: contain; /* Asegura que el logo no se distorsione */
 }
 
+/* Ajuste general de los logos */
 .banner-logos img {
-    max-height: 100px; /* Tamaño uniforme para todos los logos */
-    max-width: 100px;
-    object-fit: contain; /* Escala las imágenes sin distorsionarlas */
+    max-height: 80px; /* Tamaño por defecto */
+    max-width: 80px;
+    object-fit: contain; /* Evita distorsión de imágenes */
+    transition: transform 0.3s ease; /* Efecto suave */
 }
 
 .banner-logos a {
@@ -335,7 +338,7 @@ main {
 }
 
 .banner-logos a img:hover {
-    transform: scale(1.1); /* Amplía ligeramente la imagen al pasar el cursor */
+    transform: scale(1.1); /* Amplía un poco al pasar el cursor */
 }
 
 /* Footer */
@@ -454,4 +457,28 @@ footer {
         height: 30px;
     }
 
+    .banner-section {
+        flex-direction: column; /* Acomoda los elementos en columna */
+    }
+
+    .banner-logo {
+        margin-bottom: 10px; /* Espaciado entre el logo principal y los textos */
+    }
+
+    .banner-text {
+        text-align: center; /* Centra el texto */
+        margin-bottom: 15px; /* Espaciado entre texto y logos */
+    }
+
+    .banner-logos {
+        display: flex;
+        flex-wrap: wrap; /* Ajusta los logos en filas */
+        gap: 10px; /* Espaciado entre logos */
+        justify-content: center; /* Centra los logos */
+    }
+
+    .banner-logos img {
+        max-height: 50px; /* Tamaño más pequeño para móvil */
+        max-width: 50px;
+    }
 }
