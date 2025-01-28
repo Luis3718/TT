@@ -1,11 +1,12 @@
 from pydantic import BaseModel, EmailStr
 from datetime import date
+from typing import Optional  # Importar Optional para Python 3.9
 
 class PacienteBase(BaseModel):
     Nombre: str
     Apellidos: str
     Correo: EmailStr
-    CorreoAlternativo: EmailStr | None = None
+    CorreoAlternativo: Optional[EmailStr] = None
     Celular: str
     Sexo: str
     FechaNacimiento: date
@@ -14,16 +15,16 @@ class PacienteBase(BaseModel):
     ID_Residencia: int
     ID_EstadoCivil: int
     EnTratamiento: str
-    TomaMedicamentos: str | None = None
-    NombreMedicacion: str | None = None
+    TomaMedicamentos: Optional[str] = None
+    NombreMedicacion: Optional[str] = None
     AvisoPrivacidad: bool
     CartaConsentimiento: bool
-    EsApto: bool | None = None  # Nuevo campo agregado
-    CorreoVerificado: bool | None = None  # Nuevo campo
+    EsApto: Optional[bool] = None  # Nuevo campo agregado
+    CorreoVerificado: Optional[bool] = None  # Nuevo campo
 
 class PacienteCreate(PacienteBase):
     Contraseña: str
-    EsApto: bool | None = None  # Campo opcional pero no necesario en la entrada
+    EsApto: Optional[bool] = None  # Campo opcional pero no necesario en la entrada
 
 class Paciente(PacienteBase):
     ID_Paciente: int

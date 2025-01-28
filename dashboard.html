@@ -91,7 +91,7 @@
 <script>
     const token = localStorage.getItem("token");
 
-    const response = await fetch("http://localhost:8000/", {
+    const response = await fetch("http://localhost:8002/", {
         method: "GET",
         headers: {
             "Authorization": `Bearer ${token}`

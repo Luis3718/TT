@@ -39,7 +39,7 @@ def enviar_correo_verificacion(correo):
         return False
 
     token = generar_token_verificacion(correo)
-    enlace = f"http://127.0.0.1:8000/auth/verify?token={token}"
+    enlace = f"http://127.0.0.1:8002/auth/verify?token={token}"
     
     mensaje = MIMEMultipart()
     mensaje["From"] = remitente
@@ -83,7 +83,7 @@ def enviar_correo_recuperacion(correo):
         return False
 
     token = generar_token_verificacion(correo)
-    enlace = f"http://127.0.0.1:8000/auth/reset-password?token={token}"
+    enlace = f"http://127.0.0.1:8002/auth/reset-password?token={token}"
 
     mensaje = MIMEMultipart()
     mensaje["From"] = remitente
